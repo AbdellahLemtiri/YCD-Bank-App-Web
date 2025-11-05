@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ouverture un compte </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg background-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../images/logo.png" width="70" alt="logo"></a>
+                <div class="d-flex gap-3">
+                    <div class=""> <button
+                            class="text-white d-none d-lg-inline-flex rounded-3 background-blue border-0 p-2 "
+                            id="signup-button"> se connecter
+                        </button> </div>
+                    <button class="navbar-toggler" type="button" id="navbar-button" aria-label="nav bar ">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class=" container-fluid background-light">
+        <div class="row gap-0 min-vh-100">
+            <div
+                class="col-sm-12 col-md-5  col-lg-4  border-top-right-radius-200  p-2  background-blue d-flex flex-column  justify-content-center align-items-center text-white gap-5">
+
+
+                <h1 class="d-flex text-center p-2   ">Ouverture de Compte</h1>
+
+                <div class="row gap-4 ">
+                    <!-- <div class=" border-left" width="5px"></div> -->
+                    <div class="d-sm-inline-flex justify-content-center gap-3 col-3 col-sm-3 col-md-12">
+                        <div><img id="imgStep1" src="../images/step1.png" alt="step 1" "></div> 
+                        <div class="">
+                            <div>Étape1</div>
+                            <div class=" d-none d-md-inline-flex"> Créer un espace client</div>
+                    </div>
+                </div>
+                <div class=" d-sm-inline-flex justify-content-center gap-3 col-3  col-sm-3 col-md-12">
+                    <div><img id="imgStep2" src="../images/step1.png" alt="step 2"></div>
+                    <div>
+                        <div>Étape2</div>
+                        <div class="d-none d-md-inline-flex">
+                            Vérifier votre identité
+                        </div>
+                    </div>
+                </div>
+                <div class="d-sm-inline-flex  justify-content-center gap-3 col-sm-3 col-3  col-md-12">
+                    <div><img id="imgStep3" src="../images/step1.png" alt="step 3"></div>
+                    <div>
+                        <div>Étape3</div>
+                        <div class="d-none d-md-inline-flex"> Finaliser l'inscription</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7  col-lg-8 d-flex flex-column gap-4 p-5">
+
+            <div class="fs-2   w-75 text-center"> Bienvenue sur YCD Bank. Votre banque simplifiée.</div>
+            <form action="" class="row gap-4  " id="step1">
+
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Email" id="emailInput">
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Confirmer Email"
+                    id="confirmEmailInput">
+                <input class="border-1 col-sm-10 col-md-5" type="number" placeholder="Télé: 212*********"
+                    id="phoneInput">
+                <select class="border-1 col-sm-10 col-md-5" name="Operature" id="operatorSelect">
+                    <option value="" disabled selected>Opérateur</option>
+                    <option value="Orange">Orange</option>
+                    <option value="IAM">IAM</option>
+                    <option value="INWI">INWI</option>
+                </select>
+                <input class="border-1 col-sm-10 col-md-5" type="password" placeholder="mot de passe"
+                    id="passwordInput">
+                <input class="border-1 col-sm-10 col-md-5" type="password" placeholder="confirmer mot de passe"
+                    id="confirmPasswordInput">
+                <div class=" col-sm-10 col-md-10 d-flex justify-content-center row">
+                    <input class="border-1 col-sm-12 col-md-6 button-background-orange  " type="button"
+                        value="Créer un compte" id="createAccountButton">
+                </div>
+            </form>
+            <form action="" class="row gap-4  d-none" id="step2">
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Prénom" id="inputFirstName">
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Nom" id="inputLastName">
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="EX:AB123456"
+                    id="numeroCarteNationale">
+                <select class="border-1 col-sm-10 col-md-5" name="Operature" id="selectGenre" placeholder="Genre">
+                    <option value="" disabled="" selected=""> Genre</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+                <input class="border-1 col-sm-10 col-md-5" type="date" id="dateNaissance">
+                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Lieu de naissance"
+                    id="LieuNaissance">
+                <div class=" col-sm-10 col-md-10 d-flex justify-content-center row">
+                    <input class="border-1 col-sm-12 col-md-6" type="button" value="valider" id="validateButton"
+                        disabled="">
+                </div>
+            </form>
+
+
+            <div class="row gap-4  d-none" id="step3">
+
+
+            </div>
+
+        </div>
+        </div>
+
+    </section>
+
+
+    <script src="../js/signup.js"></script>
+</body>
+
+</html>
