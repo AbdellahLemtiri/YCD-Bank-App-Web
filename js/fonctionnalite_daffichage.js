@@ -1,5 +1,7 @@
 
-// ===============pour affichir ou disaffichier lz solde
+
+// ===============pour affichier ou disaffichier le solde
+
 const nonaffichier_solde = document.getElementById('nonaffichier_solde');
 const affichier_solde = document.getElementById('affichier_solde');
 let  noeye = document.getElementById('noeye');
@@ -12,7 +14,10 @@ noeye.addEventListener('click',function(){
     nonaffichier_solde.classList.remove('d-none');
     affichier_solde.classList.add('d-none');
 });
-// ===============pour affichir ou disaffichier lz solde
+
+
+// ===============pour affichier ou disaffichier le solde
+
 
 
 const nonaffichier_solde2 = document.getElementById('nonaffichier_solde2');
