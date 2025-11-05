@@ -95,6 +95,7 @@ operatorSelect.addEventListener('change', function () {
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // validation des champs de la deuxieme étape
 
+//validation prénom, nom >2 caractéres  
 inputFirstName.addEventListener('keyup', function () {
     if (inputFirstName.value.length > 2) {
         change_border_to_success(inputFirstName);
@@ -103,6 +104,7 @@ inputFirstName.addEventListener('keyup', function () {
     }
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 });
+//validation prénom, nom >2 caractéres
 inputLastName.addEventListener('keyup', function () {
     if (inputLastName.value.length > 2) {
         change_border_to_success(inputLastName);
@@ -111,6 +113,7 @@ inputLastName.addEventListener('keyup', function () {
     }
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 });
+// validation numero carte nationale  length ==8 commence par 2 lettres suivies de 6 chiffres
 numeroCarteNationale.addEventListener('keyup', function () {
     if (numeroCarteNationale.value.length === 8 && numeroCarteNationale.value.match(/^[A-z]{2}[0-9]+$/)) {
         change_border_to_success(numeroCarteNationale);
@@ -120,6 +123,7 @@ numeroCarteNationale.addEventListener('keyup', function () {
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 
 });
+// validation date de naissance  année >1920 et age >=18ans
 dateNaissance.addEventListener('change', function () {
     let dateNaissanceValue = new Date(dateNaissance.value);
     if (dateNaissanceValue.getFullYear() > 1920 && dateNaissanceValue.getFullYear() <= new Date().getFullYear() - 18) {
@@ -130,6 +134,7 @@ dateNaissance.addEventListener('change', function () {
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 
 });
+// validation lieu de naissance >2 caractéres
 lieuNaissance.addEventListener('keyup', function () {
     if (lieuNaissance.value.length > 2) {
         change_border_to_success(lieuNaissance);
@@ -139,8 +144,9 @@ lieuNaissance.addEventListener('keyup', function () {
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 
 });
+// validation genre selectionner une option
 selectGenre.addEventListener('change', function () {
-    if (selectGenre.value != 'gerne')
+    if (selectGenre.value != 'Genre')
         change_border_to_success(selectGenre)
     countSuccess(inputFirstName, inputLastName, numeroCarteNationale, dateNaissance, lieuNaissance, selectGenre, validateButton)
 
@@ -151,10 +157,10 @@ selectGenre.addEventListener('change', function () {
 // ///////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 // event listener pour le bouton createAccountButtonpremier étape 1
-
+// valider les informations de l'étape 1
 
  
-
+//
 createAccountButton.addEventListener('click', function () {
     if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value ) {
         ajouterINformationEtape1()
@@ -171,7 +177,8 @@ createAccountButton.addEventListener('click', function () {
 });
 
 // event listner pour button valide les informations de stpe 2
- 
+ // valider les informations de l'étape 2
+
 validateButton.addEventListener('click', function () {
     let getElementByClassBorderSeccuss = document.getElementsByClassName("message-success-border")
     if (getElementByClassBorderSeccuss.length == 12) {
@@ -187,14 +194,16 @@ validateButton.addEventListener('click', function () {
         alert("verifier les champs");
     }
 });
-
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// event listener pour le bouton finalizeButton
+// finaliser la création du compte et générer les RIB
 
 function finalizeButton() {
     document.getElementById("imgStep3").src = "../images/checked.png"
     compte.ribComptePrincipal = genereRIB()
     compte.ribCompteEparne = genereRIB()
     creerCompteDansLLocalStorage()
-
+// affichage les info de compte
     step3.innerHTML = `
                 <table>
                         <thead>
@@ -247,7 +256,7 @@ function change_border_to_success(inputElement) {
     inputElement.classList.remove("message-error-border");
 }
 
-// réinitialiser la bordure
+// réinitialiser la bordure (border color grey)
 function reset_border(inputElement) {
     inputElement.classList.remove("message-error-border");
     inputElement.classList.remove("message-success-border");
@@ -262,12 +271,12 @@ function enable_button(buttonElement) {
     buttonElement.disabled = false;
     buttonElement.classList.add("button-background-orange");
 }
-
+// disib
 function changeVisibilite(cardVisible, cardInvisible) {
     cardInvisible.classList.add('d-none');
     cardVisible.classList.remove('d-none');
 }
-
+// compter les champte valider
 function countSuccess(arg1, arg2, arg3, arg4, arg5, arg6, submitButton) {
     let successCount = 0;
     if (arg1.classList.contains("message-success-border")) {
@@ -297,14 +306,15 @@ function countSuccess(arg1, arg2, arg3, arg4, arg5, arg6, submitButton) {
 
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////traitement/////////////////////////////
+//ajouter les donne au objet 
+//pour le premier etape
 function ajouterINformationEtape1() {
-
     compte.email = emailInput.value
     compte.password = passwordInput.value
     compte.telephone = phoneInput.value
     compte.operature = operatorSelect.value
-
 }
+// pour la deuxieme etape
 
 function ajouterINformationEtape2() {
     compte.prenom = inputFirstName.value
@@ -315,7 +325,7 @@ function ajouterINformationEtape2() {
     compte.lieuNaissance = LieuNaissance.value
 
 }
-
+// 3eme etape
 function ajouterINformationEtape3() {
 
     step3.innerHTML = `
@@ -369,6 +379,8 @@ function ajouterINformationEtape3() {
 
 }
 
+// generer un rib
+
 function genereRIB() {
 
     let numeroCompte = ""
@@ -383,6 +395,7 @@ function genereRIB() {
     return rib;
 }
 
+//  sauvgarder dans localstorage
 function creerCompteDansLLocalStorage() {
     localStorage.removeItem("compte");
     localStorage.setItem("compte", JSON.stringify(compte))
