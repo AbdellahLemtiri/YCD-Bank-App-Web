@@ -25,6 +25,7 @@ let formAjoutBeneficaire2 = document.getElementById('formAjoutBeneficaire2')
 verementButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceVerement, interfaceAjouteBenef, interfacegestionBenef)
     changebuttonSection(verementButtonSection, ajoutBeneficiaireButtonSection, gestionBeneficiaireButtonSection)
+    uotadelisteBenef()
 })
 ajoutBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceAjouteBenef, interfaceVerement, interfacegestionBenef)
@@ -34,7 +35,9 @@ ajoutBeneficiaireButtonSection.addEventListener("click", function () {
 gestionBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfacegestionBenef, interfaceVerement, interfaceAjouteBenef)
     changebuttonSection(gestionBeneficiaireButtonSection, verementButtonSection, ajoutBeneficiaireButtonSection)
-    updatecart()
+    let listBeneficiaire = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
+    updatecart(listBeneficiaire)
+
 })
 
 choixcompteBeneficaire1.addEventListener("click", function () {
@@ -102,14 +105,17 @@ function changeVisibilite(cardVisible, cardInvisible) {
 
 
 
-let idsalut = document.getElementById('idsalut')
-let sectionInfoCompte = document.getElementById('sectionInfoCompte') 
 
 chargeinfodecompte()
 function chargeinfodecompte() {
+    let idsalut = document.getElementById('idsalut')
+    let sectionInfoCompte = document.getElementById('sectionInfoCompte')
+    sectionInfoCompte.innerHTML=""
     let compte = JSON.parse(localStorage.getItem('compte'))
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
     idsalut.innerText = "Bonjour " + nomcomplet
+    document.getElementById('plafondquotidienaffiche').textContent = compte.plafondQuotidien
+    document.getElementById('plafondoperationaffiche').textContent = compte.plafondOperation
     let div = document.createElement('div')
     div.setAttribute('class', 'd-flex justify-content-between align-items-center  pb-1')
     div.innerHTML = ` <div class=" ">

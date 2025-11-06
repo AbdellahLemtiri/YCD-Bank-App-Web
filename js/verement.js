@@ -1,12 +1,12 @@
 
-// les dom de
+//  
 let inputMontant = document.getElementById('inputMontant')
 let inputMotif = document.getElementById('inputMotif')
 let listBeneficiaire = document.getElementById("listBeneficiaire")
 let verementButton = document.getElementById('verementButton')
 
 uotadelisteBenef();
-
+textChangeEtatDeCompte();
 inputMontant.addEventListener("keyup", function () {
     let compte = JSON.parse(localStorage.getItem('compte'))
     let sold = compte.ribComptePrincipal.sold
@@ -30,19 +30,48 @@ listBeneficiaire.addEventListener("keyup", function () {
 })
 
 
+
+
 verementButton.addEventListener("click", function () {
-    if (listBeneficiaire.value != "NULL" && inputMotif.value.length > 3 && inputMontant.value > 0) {
-        if (confirm("vous voullez  ajoute ?")) {
-            let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || []
-            listTransaction.push(creeTransaction());
-            let compte = JSON.parse(localStorage.getItem('compte'))
-            compte.ribComptePrincipal.sold -= inputMontant.value
-            localStorage.setItem('compte', JSON.stringify(compte))
-            localStorage.setItem('listTransaction', JSON.stringify(listTransaction))
-        }
+    let compte = JSON.parse(localStorage.getItem('compte')) || {};
+    if (compte.typeactive != "Compte Principal") {
+        alert("Veuillez changer votre compte au compte Principal");
+        return;
     }
-    else alert("error")
-})
+    if (compte.ribComptePrincipal.etat != "active") {
+        alert(" Veuillez activer votre compte.");
+        return;
+    }
+    if (listBeneficiaire.value !== "NULL" && inputMotif.value.length > 3 && Number(inputMontant.value) > 0) {
+        let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
+        let montantConsumerparmois = 0;
+        listTransaction.forEach(element => {
+            montantConsumerparmois += Number(element.montant);
+        });
+        let montantSaisi = Number(inputMontant.value);
+        if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
+            alert('Vous avez dépassé le plafond mensuel autorisé.');
+            return;
+        }
+        if (confirm("Voulez-vous ajouter cette transaction ?")) {
+            listTransaction.push(creeTransaction());
+
+            if (compte.ribComptePrincipal && compte.ribComptePrincipal.sold !== undefined) {
+                compte.ribComptePrincipal.sold -= montantSaisi;
+            }
+            localStorage.setItem('compte', JSON.stringify(compte));
+            localStorage.setItem('listTransaction', JSON.stringify(listTransaction));
+            alert(' Transaction ajoutée avec succès !');
+            inputMotif.value = "";
+            inputMontant.value = "";
+            listBeneficiaire.value = "NULL";
+        }
+
+
+    } else {
+        alert("Veuillez remplir correctement tous les champs")
+    }
+});
 
 function getBeneficaire(id) {
     let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
@@ -67,6 +96,7 @@ function creeTransaction() {
     return transaction
 }
 
+
 // functions
 
 function uotadelisteBenef() {
@@ -75,15 +105,23 @@ function uotadelisteBenef() {
 
     if (tabBeneficaires.length > 0) {
         for (let i = 0; i < tabBeneficaires.length; i++) {
-            let option = document.createElement('option')
-            option.setAttribute('value', tabBeneficaires[i].idBeneficiare)
-            option.innerText = tabBeneficaires[i].nomcmplet
-            listBeneficiaire.appendChild(option)
+            if (tabBeneficaires[i].etat == "active") {
+                let option = document.createElement('option')
+                option.setAttribute('value', tabBeneficaires[i].idBeneficiare)
+                option.innerText = tabBeneficaires[i].nomcmplet
+                listBeneficiaire.appendChild(option)
+            }
         }
     }
 }
 
-
+function textChangeEtatDeCompte() {
+    let compte = JSON.parse(localStorage.getItem('compte')) || {};
+    if (compte.typeactive == "Compte Principal")
+        document.getElementById('typecomptetext').textContent = "Mon compte epargne"
+    else
+        document.getElementById('typecomptetext').textContent = "mon compte principal"
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -98,20 +136,76 @@ inputMontantamoi.addEventListener("keyup", function () {
         change_border_to_error(inputMontantamoi)
 })
 
-
+function creeTransaction() {
+    let idTransaction = localStorage.getItem("idTransaction") || 1
+    let transaction = {
+        idTransaction: idTransaction,
+        datetransaction: new Date(),
+        beneficaire: getBeneficaire(listBeneficiaire.value),
+        montant: inputMontant.value,
+        motif: inputMotif.value
+    }
+    localStorage.setItem("idTransaction", ++idTransaction)
+    return transaction
+}
+function creeTransactionVersCompte() {
+    let idTransaction = localStorage.getItem("idTransaction") || 1
+    let transaction = {
+        idTransaction: idTransaction,
+        datetransaction: new Date(),
+        beneficaire: getBeneficaire(listBeneficiaire.value),
+        montant: -inputMontantamoi.value, // 
+        motif: "transaction interne" //  
+    }
+    localStorage.setItem("idTransaction", ++idTransaction)
+    return transaction
+}
 
 verementButtonamoi.addEventListener("click", function () {
-    if (inputMontantamoi.value > 0) {
-        if (confirm("vous voullez  ajoute ?")) {
-            let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || []
-            listTransaction.push(creeTransaction());
-            let compte = JSON.parse(localStorage.getItem('compte'))
-            compte.ribComptePrincipal.sold -= inputMontantamoi.value
-            let sold = parseInt(compte.ribCompteEparne.sold) + parseInt(inputMontantamoi.value)
-            compte.ribCompteEparne.sold = sold
-            localStorage.setItem('compte', JSON.stringify(compte))
-            localStorage.setItem('listTransaction', JSON.stringify(listTransaction))
+    let montant = Number(inputMontantamoi.value);
+    let compte = JSON.parse(localStorage.getItem('compte')) || {};
+    if (montant > 0) {
+        if (compte.typeactive == "Compte Principal") {
+            if (montant > compte.ribComptePrincipal.sold) {
+                alert("Solde insuffisant !");
+                return;
+            }
+            if (confirm("Voulez-vous ajouter cette transaction vers votre compte épargne ?")) {
+                let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
+                let compte = JSON.parse(localStorage.getItem('compte')) || {};
+                listTransaction.push(creeTransaction()); //  
+
+                compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) - montant;
+                compte.ribCompteEparne.sold = Number(compte.ribCompteEparne.sold) + montant;
+
+                localStorage.setItem('compte', JSON.stringify(compte));
+                localStorage.setItem('listTransaction', JSON.stringify(listTransaction));
+                alert("Virement effectué avec succès !");
+                inputMontantamoi.value = "";
+            }
         }
+        else {
+            if (montant > compte.ribCompteEparne.sold) {
+                alert("Solde insuffisant !");
+                return;
+            }
+            if (confirm("Voulez-vous ajouter cette transaction vers votre compte principal ?")) {
+                let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
+                let compte = JSON.parse(localStorage.getItem('compte')) || {};
+
+                listTransaction.push(creeTransactionVersCompte());
+
+                compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) + montant; //   ADD to Principal
+                compte.ribCompteEparne.sold = Number(compte.ribCompteEparne.sold) - montant;     //   
+
+                localStorage.setItem('compte', JSON.stringify(compte));
+                localStorage.setItem('listTransaction', JSON.stringify(listTransaction));
+                alert("Virement effectué avec succès !");
+                inputMontantamoi.value = "";
+            }
+        }
+    } else {
+        alert(" Montant invalide !");
     }
-    else alert("error")
-})
+});
+
