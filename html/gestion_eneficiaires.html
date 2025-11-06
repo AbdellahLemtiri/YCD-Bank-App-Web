@@ -78,7 +78,7 @@
             </div>
             <div class="align-self-end fs-12 fw-bold">123455MAD</div>
         </div>
-        <section id="interfaceVerement" class="">
+        <section id="interfaceVerement" class="d-none">
             <!-- section pour les action de virement -->
             <div class="row border-orange-bottom">
                 <div class="col-4 col-md-6 p-3 bg-orange text-white fs-14 text-center border-white-left">Verement</div>
@@ -124,7 +124,59 @@
 
         </section>
 
-       
+        <section id="interfaceAjouteBenef" class="">
+            <!-- section pour les action de gestion be  -->
+            <div class="row border-orange-bottom">
+                <div class="col-4 col-md-3 p-3 bg-grey text-center fs-14 border-white-left">Verement</div>
+                <div class="col-4 col-md-6 p-3 bg-orange text-white fs-14 text-center border-white-left ">Ajouter Bénéficiaire</div>
+                <div class="col-4 col-md-3 p-3 bg-grey text-center fs-14 border-white-left ">Gérer les bénéficiaires
+                </div>
+            </div>
+            <div class=" d-flex flex-column border-orange-bottom pb-1 ">
+                <div class="fs-12 fw-bold  text-orange">
+                    Ajouter un Bénéficaire
+                </div>
+                <div class=" d-flex gap-4">
+                    <div class=" fs-12 p-1">
+                        <span>Bénéficaire:</span>
+
+                    </div>
+                    <div class=" fs-12 p-1">
+                        <span>YCD banque</span>
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                    <div class=" fs-12 p-1">
+                        <span>D'autre banque</span>
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class=" row  p-3 mb-3  ">
+                <div class=" col-6  col-md-3 fs-12 ">
+                    <span>plafond quotidien </span>
+                    <span class="text-success">10000</span>
+                </div>
+                <div class="col-5 fs-12 ">
+                    <span>plafond par operation </span>
+                    <span class="text-success">100000</span>
+                </div>
+            </div>
+            <div>
+                <form action="#" class="row gap-3 p-3 ">
+                    <div class="col-12 row gap-3 fs-12">
+                        <span class="col-12 col-md-5 col-lg-3"> Nom de Bénéficaire</span>
+                        <input type="text" placeholder="nom Bénéficaire" id="inputMontant" class="col-12 col-md-5  col-lg-3 border-1">
+                    </div>
+                    <div class="col-12 row gap-3 fs-12">
+                        <span class="col-12 col-md-5 col-lg-3"> N° Compte</span>
+                        <input type="number" placeholder="montant"  id="inputMontant" class="col-12 col-md-5  col-lg-3 border-1">
+                    </div>
+                    <button class="col-sm-10 col-md-4 border-1 bg-orange text-white">suivant</button>
+                </form>
+            </div>
+
+        </section>
+
 
     </main>
 
