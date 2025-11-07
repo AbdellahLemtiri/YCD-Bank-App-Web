@@ -103,12 +103,30 @@
   height: 120px;        
  cursor: pointer;
 }
-
+.les_facture .card-box {
+ background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 200px;        
+  height: 120px;        
+ cursor: pointer;
+}
 .Recharge_Télécom_Internet .card-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-
+.les_facture .card-box:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.les_facture .card-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: contain;
+}
 .Recharge_Télécom_Internet .card-box img {
   width: 60px;
   height: 60px;
@@ -119,7 +137,13 @@
 .Recharge_Télécom_Internet .card-text {
   text-align: right;
 }
-
-.text-orange {
-  color: #f7931e;
+.les_facture .card-text {
+  text-align: right;
+}
+.flech{
+color: var(--background-color-white);
+    background-color:  var(--button-background-orange);
+    max-width: 200px;
+    min-height: 30px;
+    
 }
