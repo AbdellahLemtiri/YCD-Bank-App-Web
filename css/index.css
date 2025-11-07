@@ -86,3 +86,12 @@
 .text-bleu-dark{
     color: var(--background-color-blue-black);
 }
+
+.border-1-left-0{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.border-1-right-0{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
