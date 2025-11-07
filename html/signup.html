@@ -18,12 +18,10 @@
                 <a class="navbar-brand" href="#"><img src="../images/logo.png" width="70" alt="logo"></a>
                 <div class="d-flex gap-3">
                     <div class=""> <button
-                            class="text-white d-none d-lg-inline-flex rounded-3 background-blue border-0 p-2 "
+                            class="text-white rounded-3 background-blue border-0 p-2 "
                             id="signup-button"> se connecter
                         </button> </div>
-                    <button class="navbar-toggler" type="button" id="navbar-button" aria-label="nav bar ">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+
                 </div>
 
             </div>
@@ -43,15 +41,15 @@
                     <div class="d-sm-inline-flex justify-content-center gap-3 col-3 col-sm-3 col-md-12">
                         <div><img id="imgStep1" src="../images/step1.png" alt="step 1" "></div> 
                         <div class="">
-                            <div>Étape1</div>
-                            <div class=" d-none d-md-inline-flex"> Créer un espace client</div>
+                            <div class="fs-14">Étape1</div>
+                            <div class=" d-none d-md-inline-flex fs-12"> Créer un espace client</div>
                     </div>
                 </div>
                 <div class=" d-sm-inline-flex justify-content-center gap-3 col-3  col-sm-3 col-md-12">
                     <div><img id="imgStep2" src="../images/step1.png" alt="step 2"></div>
                     <div>
-                        <div>Étape2</div>
-                        <div class="d-none d-md-inline-flex">
+                        <div class="fs-14">Étape2</div>
+                        <div class="d-none d-md-inline-flex fs-12">
                             Vérifier votre identité
                         </div>
                     </div>
@@ -59,8 +57,8 @@
                 <div class="d-sm-inline-flex  justify-content-center gap-3 col-sm-3 col-3  col-md-12">
                     <div><img id="imgStep3" src="../images/step1.png" alt="step 3"></div>
                     <div>
-                        <div>Étape3</div>
-                        <div class="d-none d-md-inline-flex"> Finaliser l'inscription</div>
+                        <div class="fs-14">Étape3</div>
+                        <div class="d-none d-md-inline-flex fs-12"> Finaliser l'inscription</div>
                     </div>
                 </div>
 
@@ -68,23 +66,23 @@
         </div>
         <div class="col-sm-12 col-md-7  col-lg-8 d-flex flex-column gap-4 p-5">
 
-            <div class="fs-2   w-75 text-center"> Bienvenue sur YCD Bank. Votre banque simplifiée.</div>
+            <div class="fs-2   w-75 text-center p-4"> Bienvenue sur YCD Bank. Votre banque simplifiée.</div>
             <form action="" class="row gap-4  " id="step1">
 
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Email" id="emailInput">
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Confirmer Email"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="Email" id="emailInput">
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="Confirmer Email"
                     id="confirmEmailInput">
-                <input class="border-1 col-sm-10 col-md-5" type="number" placeholder="Télé: 212*********"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="number" placeholder="Télé: 212*********"
                     id="phoneInput">
-                <select class="border-1 col-sm-10 col-md-5" name="Operature" id="operatorSelect">
+                <select class="border-1 col-sm-10 col-md-5 fs-12" name="Operature" id="operatorSelect">
                     <option value="" disabled selected>Opérateur</option>
                     <option value="Orange">Orange</option>
                     <option value="IAM">IAM</option>
                     <option value="INWI">INWI</option>
                 </select>
-                <input class="border-1 col-sm-10 col-md-5" type="password" placeholder="mot de passe"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="password" placeholder="mot de passe"
                     id="passwordInput">
-                <input class="border-1 col-sm-10 col-md-5" type="password" placeholder="confirmer mot de passe"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="password" placeholder="confirmer mot de passe"
                     id="confirmPasswordInput">
                 <div class=" col-sm-10 col-md-10 d-flex justify-content-center row">
                     <input class="border-1 col-sm-12 col-md-6 button-background-orange  " type="button"
@@ -92,17 +90,17 @@
                 </div>
             </form>
             <form action="" class="row gap-4  d-none" id="step2">
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Prénom" id="inputFirstName">
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Nom" id="inputLastName">
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="EX:AB123456"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="Prénom" id="inputFirstName">
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="Nom" id="inputLastName">
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="EX:AB123456"
                     id="numeroCarteNationale">
-                <select class="border-1 col-sm-10 col-md-5" name="Operature" id="selectGenre" placeholder="Genre">
+                <select class="border-1 col-sm-10 col-md-5 fs-12" name="Operature" id="selectGenre" placeholder="Genre">
                     <option value="" disabled="" selected=""> Genre</option>
                     <option value="Homme">Homme</option>
                     <option value="Femme">Femme</option>
                 </select>
-                <input class="border-1 col-sm-10 col-md-5" type="date" id="dateNaissance">
-                <input class="border-1 col-sm-10 col-md-5" type="text" placeholder="Lieu de naissance"
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="date" id="dateNaissance">
+                <input class="border-1 col-sm-10 col-md-5 fs-12" type="text" placeholder="Lieu de naissance"
                     id="LieuNaissance">
                 <div class=" col-sm-10 col-md-10 d-flex justify-content-center row">
                     <input class="border-1 col-sm-12 col-md-6" type="button" value="valider" id="validateButton"

@@ -211,7 +211,7 @@ function finalizeButton() {
                                 <th colspan="4" class="fs-5   text-center pb-3">Vos informations bancaires</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center"> 
+                        <tbody class="text-center fs-14"> 
                         <tr>
                             <td>code banque</td>
                             <td>code agence</td>
@@ -329,10 +329,10 @@ function ajouterINformationEtape2() {
 function ajouterINformationEtape3() {
 
     step3.innerHTML = `
-    <table class=" col-md-12  col-sm-12 col-lg-8 ">
+    <table class=" col-md-12  col-sm-12 col-lg-8 fs-12 ">
         <thead>
             <tr>
-                <th colspan="4" class="fs-5   text-center p-3">vos informations personnelles</th>
+                <th colspan="4" class="fs-16  text-center p-3">vos informations personnelles</th>
             </tr>
         </thead>
         

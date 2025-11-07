@@ -62,3 +62,43 @@
 .message-success-border {
  border: var(--border-color-success);
 }
+
+
+.message-success-border {
+ border: var(--border-color-success);
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.fs-12 {    
+    font-size: 12px;
+}
+.text-orange{
+    color: var(--secondary-color);
+}
+.border-orange-bottom{
+   
+    border-bottom: 1px solid var( --button-background-orange);
+}
+.border-white-left{
+    border-left: 1px solid var( --background-color-white);
+}
+
+.bg-orange{
+    background-color: var(--button-background-orange);
+}
+
+.bg-grey{
+    background-color: var(--background-color-dark);
+}
+.bg-opacity-0{
+    background-color: transparent;
+}
+
+.ls-none{
+    list-style: none;
+}
