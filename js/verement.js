@@ -5,16 +5,7 @@ let inputMotif = document.getElementById('inputMotif')
 let listBeneficiaire = document.getElementById("listBeneficiaire")
 let verementButton = document.getElementById('verementButton')
 
-// 
-
-
-let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
-listBeneficiaire.innerHTML = ""
-for (let i = 0; i < tabBeneficaires.length; i++) {
-    let option = document.createElement('option')
-    option.innerText = tabBeneficaires[i].nomcmplet
-    listBeneficiaire.appendChild(option)
-}
+uotadelisteBenef();
 
 inputMontant.addEventListener("keyup", function () {
     if (inputMontant.value > 0 && inputMontant.value < 100000)
@@ -39,15 +30,17 @@ verementButton.addEventListener("click", function () {
 
 // functions
 
-function creeBeneficaire() {
-    let datenow = new Date()
-    let beneficaire = {
-        nomcmplet: inputNomCompteBYCD.value,
-        numerocompte: inputNumeroCompteBYCD.value,
-        dateajout: datenow,
-        etat: "active"
+function uotadelisteBenef() {
+    let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
+    if (tabBeneficaires.length > 0) {
+        listBeneficiaire.innerHTML = ""
+        for (let i = 0; i < tabBeneficaires.length; i++) {
+            let option = document.createElement('option')
+            option.setAttribute('value',tabBeneficaires[i].nomcmplet)
+            option.innerText = tabBeneficaires[i].nomcmplet
+            listBeneficiaire.appendChild(option)
+        }
     }
-    return beneficaire
 }
 
 
