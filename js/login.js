@@ -15,6 +15,7 @@ signupButton.addEventListener('click', function () {
 });
 
 emailInput.addEventListener('keyup', function () {
+    messageTextError.innerText = ""
     let emailValue = emailInput.value;
     if (emailValue.length == 6) {
         change_border_to_success(emailInput)
@@ -27,6 +28,7 @@ emailInput.addEventListener('keyup', function () {
 // Validation du mot de passe
 
 passwordInput.addEventListener('keyup', function () {
+    messageTextError.innerText = ""
     let passwordValue = passwordInput.value;
     if (passwordValue.length >= 8) {
         change_border_to_success(passwordInput)
@@ -61,10 +63,9 @@ submitButton.addEventListener('click', function () {
     for (let i = 0; i < 6; i++)
         identifiant += compte.ribComptePrincipal.numeroCompte[i]
 
-
     if (identifiant == emailInput.value && compte.password === passwordInput.value) {
         localStorage.setItem("login", "seccuss")
-        window.location.href = "signup.html";
+        window.location.href = "dashbord.html";
     }
     else {
         messageTextError.innerText = "identifiant de compte ou mot de passe incorrect .identifiant doit être les 6 premiers chiffres du numéro de compte"
