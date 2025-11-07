@@ -90,4 +90,10 @@
 .bg-grey{
     background-color: var(--background-color-dark);
 }
+.bg-opacity-0{
+    background-color: transparent;
+}
 
+.ls-none{
+    list-style: none;
+}
