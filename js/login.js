@@ -1,6 +1,10 @@
 // login.js
 // Script pour la page de connexion
 
+if (localStorage.getItem("login") == "seccuss")
+    window.location.href = "dashboard.html";
+
+
 let emailInput = document.getElementById("emailInput");
 let passwordInput = document.getElementById("passwordInput");
 let submitButton = document.getElementById("submitButton");
