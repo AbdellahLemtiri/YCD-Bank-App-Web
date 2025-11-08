@@ -1,3 +1,7 @@
+// if (localStorage.getItem("login") != "seccuss")
+//     window.location.href = "login.html";
+
+
 let verementButtonSection = document.getElementById("VerementButtonSection")
 let ajoutBeneficiaireButtonSection = document.getElementById("ajoutBeneficiaireButtonSection")
 let gestionBeneficiaireButtonSection = document.getElementById("gestionBeneficiaireButtonSection")
@@ -15,7 +19,7 @@ let choixBanqueAutre = document.getElementById('choixBanqueAutre')
 let formAjoutBeneficaire1 = document.getElementById('formAjoutBeneficaire1')
 let formAjoutBeneficaire2 = document.getElementById('formAjoutBeneficaire2')
 // 
- 
+
 
 
 verementButtonSection.addEventListener("click", function () {
@@ -77,6 +81,10 @@ function reset_border(inputElement) {
     inputElement.classList.remove("message-error-border");
     inputElement.classList.remove("message-success-border");
 }
+// supprimer les champ
+function vider_champ(inputElement) {
+    inputElement.value = "";
+}
 // desactiver le bouton
 function disablede_button(buttonElement) {
     buttonElement.disabled = true;
@@ -92,3 +100,6 @@ function changeVisibilite(cardVisible, cardInvisible) {
     cardInvisible.classList.add('d-none');
     cardVisible.classList.remove('d-none');
 }
+
+
+
