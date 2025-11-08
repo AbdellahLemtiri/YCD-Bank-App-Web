@@ -1,5 +1,5 @@
-// if (localStorage.getItem("login") != "seccuss")
-//     window.location.href = "login.html";
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
 
 
 let verementButtonSection = document.getElementById("VerementButtonSection")
