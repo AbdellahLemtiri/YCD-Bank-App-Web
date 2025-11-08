@@ -69,7 +69,7 @@ submitButton.addEventListener('click', function () {
 
     if (identifiant == emailInput.value && compte.password === passwordInput.value) {
         localStorage.setItem("login", "seccuss")
-        window.location.href = "dashbord.html";
+        window.location.href = "dashboard.html";
     }
     else {
         messageTextError.innerText = "identifiant de compte ou mot de passe incorrect .identifiant doit être les 6 premiers chiffres du numéro de compte"
