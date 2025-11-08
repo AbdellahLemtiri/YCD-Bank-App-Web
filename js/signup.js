@@ -1,3 +1,7 @@
+if (localStorage.getItem("login") == "seccuss")
+    window.location.href = "dashboard.html";
+
+
 // signup.js
 // dom elements les inputs  de la page signup.html
 let signupButton = document.getElementById('signup-button');
@@ -200,8 +204,8 @@ validateButton.addEventListener('click', function () {
 
 function finalizeButton() {
     document.getElementById("imgStep3").src = "../images/checked.png"
-    compte.ribComptePrincipal = genereRIB()
-    compte.ribCompteEparne = genereRIB()
+    compte.ribComptePrincipal = genereRIB(10000)
+    compte.ribCompteEparne = genereRIB(0)
     creerCompteDansLLocalStorage()
 // affichage les info de compte
     step3.innerHTML = `
@@ -322,7 +326,7 @@ function ajouterINformationEtape2() {
     compte.numeroCarteNationale = numeroCarteNationale.value
     compte.genre = selectGenre.value
     compte.dateNaissance = dateNaissance.value
-    compte.lieuNaissance = LieuNaissance.value
+    compte.lieuNaissance = lieuNaissance.value
 
 }
 // 3eme etape
@@ -381,7 +385,7 @@ function ajouterINformationEtape3() {
 
 // generer un rib
 
-function genereRIB() {
+function genereRIB(sold) {
 
     let numeroCompte = ""
     for (let i = 0; i < 16; i++)
@@ -390,7 +394,9 @@ function genereRIB() {
         codeBanque: "232",
         codeLocalite: "676",
         cleRIB: "37",
-        numeroCompte: numeroCompte
+        numeroCompte: numeroCompte,
+        sold:sold,
+        etat:"active"
     }
     return rib;
 }
