@@ -2,7 +2,10 @@
 
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800;900&display=swap);
 
-
+*{
+    box-sizing: border-box;
+    
+}
 :root {
     --primary-color: #131313;
     --secondary-color: #FFC247;
@@ -143,8 +146,16 @@
 .flech{
 color: var(--background-color-white);
     background-color:  var(--button-background-orange);
-    max-width: 180px;
+    max-width: 170px;
     min-height: 30px;
     border-radius: 0 15px 15px 0;
+    margin: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
     
+}
+.b1{
+    border: none;
+    padding: 6px;
+    border-radius: 15px;
 }
