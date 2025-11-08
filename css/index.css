@@ -11,6 +11,7 @@
     --background-color-dark: #D9D9D9;
     --background-color-white: #ffffff;
     --background-color-blue: #4335DE;
+    --background-color-blue-black: #02033B;
     --button-background-orange: #FF8D28;
     --button-background-orange-disabled: #ff8c2882;
     --border-color-orange: 1px solid #FFC247;
@@ -78,4 +79,19 @@
 
 .message-success-border {
     border: var(--border-color-success);
+}
+.bg-bleu-dark{
+    background-color: var(--background-color-blue-black);
+}
+.text-bleu-dark{
+    color: var(--background-color-blue-black);
+}
+
+.border-1-left-0{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.border-1-right-0{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
