@@ -3,6 +3,7 @@ if (localStorage.getItem("login") != "seccuss")
 
 let idsalut = document.getElementById('idsalut')
 let sectionInfoCompte = document.getElementById('sectionInfoCompte')
+let moncarte = document.getElementById('moncarte')
 
 chargeinfodecompte()
 function chargeinfodecompte() {
@@ -24,4 +25,33 @@ function chargeinfodecompte() {
                 </div>
                 <div class="align-self-end fs-12 fw-bold text-success">${compte.ribComptePrincipal.sold} DH</div>`
     sectionInfoCompte.appendChild(div)
+
+    let divcarte = document.createElement('div')
+    divcarte.setAttribute('class', 'card d-flex flex-column gap-4 p-4 bg-carte text-white m-2')
+    divcarte.innerHTML = ` <span class="fw-bold">YCD Bank</span>
+                    <span class=""> ${compte.ribComptePrincipal.numeroCompte}</span>
+                    <div class="d-flex justify-content-between gap-4 fs-14">
+                        <div class="d-flex flex-column">
+                            <span>Card Holder Name</span>
+                            <span>  ${nomcomplet}</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span>Expired Date</span>
+                            <span>10/28</span>
+                        </div>
+                        <div>
+                            <img src="../images/MasterCard.png" alt="MasterCard">
+
+                        </div>
+                    </div>`
+    moncarte.prepend(divcarte)
+
+
+
+
 }
+
+
+
+
+

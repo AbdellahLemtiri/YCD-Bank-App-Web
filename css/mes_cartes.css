@@ -97,3 +97,9 @@
 .ls-none{
     list-style: none;
 }
+
+
+.bg-carte {
+   
+    background-image: linear-gradient(to right , #FED4B4, #3BB9A1);
+}
