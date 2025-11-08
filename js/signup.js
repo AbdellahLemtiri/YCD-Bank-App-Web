@@ -1,3 +1,7 @@
+if (localStorage.getItem("login") == "seccuss")
+    window.location.href = "dashboard.html";
+
+
 // signup.js
 // dom elements les inputs  de la page signup.html
 let signupButton = document.getElementById('signup-button');
