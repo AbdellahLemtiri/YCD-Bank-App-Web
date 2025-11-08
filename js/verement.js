@@ -27,7 +27,7 @@ listBeneficiaire.addEventListener("keyup", function () {
         change_border_to_error(inputMotif)
 })
 
- 
+
 verementButton.addEventListener("click", function () {
     if (listBeneficiaire.value != "NULL" && inputMotif.value.length > 3 && inputMontant.value > 0) {
         if (confirm("vous voullez  ajoute ?")) {
@@ -66,8 +66,9 @@ function creeTransaction() {
 
 function uotadelisteBenef() {
     let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
+    listBeneficiaire.innerHTML = ' <option value="NULL" disabled selected>choisir un beneficiaire</option>'
+
     if (tabBeneficaires.length > 0) {
-        listBeneficiaire.innerHTML = ' <option value="NULL" disabled selected>choisir un beneficiaire</option>'
         for (let i = 0; i < tabBeneficaires.length; i++) {
             let option = document.createElement('option')
             option.setAttribute('value', tabBeneficaires[i].idBeneficiare)
@@ -81,7 +82,7 @@ function uotadelisteBenef() {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-let inputMontantamoi = document.getElementById('inputMontantamoi') 
+let inputMontantamoi = document.getElementById('inputMontantamoi')
 let verementButtonamoi = document.getElementById('verementButtonamoi')
 inputMontantamoi.addEventListener("keyup", function () {
     if (inputMontantamoi.value > 0 && inputMontantamoi.value < 100000)

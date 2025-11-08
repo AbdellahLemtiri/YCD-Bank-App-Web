@@ -2,7 +2,7 @@ let buttonAjoutBeneficaireYCD = document.getElementById('buttonAjoutBeneficaireY
 let inputNumeroCompteBYCD = document.getElementById('inputNumeroCompteBYCD')
 let inputNomCompteBYCD = document.getElementById('inputNomCompteBYCD')
 
- 
+
 
 inputNomCompteBYCD.addEventListener("keyup", function () {
     if (inputNomCompteBYCD.value.length > 5)
@@ -22,9 +22,14 @@ buttonAjoutBeneficaireYCD.addEventListener("click", function () {
     if (inputNumeroCompteBYCD.value.length === 16 && inputNomCompteBYCD.value.length > 5) {
         if (confirm("vous voullez  ajoute ?")) {
             let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
-            let xxx=creeBeneficaire(inputNomCompteBYCD.value, inputNumeroCompteBYCD.value,true)
+            let xxx = creeBeneficaire(inputNomCompteBYCD.value, inputNumeroCompteBYCD.value, true)
             tabBeneficaires.push(xxx);
             localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
+            vider_champ(inputNomCompteBYCD)
+            vider_champ(inputNumeroCompteBYCD)
+            reset_border(inputNumeroCompteBYCD)
+            reset_border(inputNomCompteBYCD)
+            uotadelisteBenef()
         }
     }
     else
@@ -34,28 +39,31 @@ buttonAjoutBeneficaireYCD.addEventListener("click", function () {
 
 
 // functions
-
- 
-function creeBeneficaire( nom, rib, bycd = true) {
+function creeBeneficaire(nom, rib, bycd = true) {
     let datenow = new Date()
+    let idBeneficiare = localStorage.getItem("idBeneficiare") || 1
     let beneficaire = {}
+    beneficaire.idBeneficiare = idBeneficiare
+    beneficaire.nomcmplet = nom
+    beneficaire.dateajout = datenow
     if (bycd == true) {
-        beneficaire.nomcmplet = nom
         beneficaire.numerocompte = "232" + "676" + rib + "37"
-        beneficaire.dateajout = datenow
         beneficaire.type = "YCD"
         beneficaire.etat = "active"
     }
     else {
-        beneficaire.nomcmplet = nom
         beneficaire.numerocompte = rib
-        beneficaire.dateajout = datenow
         beneficaire.type = "Autre"
         beneficaire.etat = "active"
     }
-
+    localStorage.setItem("idBeneficiare", ++idBeneficiare)
     return beneficaire
 }
+
+
+
+
+
 
 // ///////////////////////////////////////////////////////////////////////////////
 
@@ -84,6 +92,11 @@ buttonAjoutBeneficaireRIB.addEventListener("click", function () {
             let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
             tabBeneficaires.push(creeBeneficaire(inputNomRIB.value, inputNumeroRIB.value, false));
             localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
+            vider_champ(inputNomRIB)
+            vider_champ(inputNumeroRIB)
+            reset_border(inputNumeroRIB)
+            reset_border(inputNomRIB)
+            uotadelisteBenef()
         }
     }
     else
@@ -92,7 +105,9 @@ buttonAjoutBeneficaireRIB.addEventListener("click", function () {
 })
 
 
- 
+
+
+
 
 // document.getElementById('formVerement1').addEventListener('click', function (e) {
 //     console.log("e.target : ", e.target.id);
