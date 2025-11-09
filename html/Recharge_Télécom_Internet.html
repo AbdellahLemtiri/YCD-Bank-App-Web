@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="../css/Recharge_Télécom_Internet.css">
 </head>
 
-<body class="row ">
+<body class="row " style="width: 100%;">
    <header class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 border-end d-flex flex-column justify-content-between
         align-items-center p-3">
       <nav class="d-flex flex-column align-items-center  ">
@@ -81,62 +81,129 @@
 
 
 
-       <!-- la partie de racharge telecome -->
+      <!-- la partie de racharge telecome -->
 
-      <section class="Recharge_Télécom_Internet ">
-         <div class="row gap-2 flex-wrap bg-grey justify-content-center p-3 ">
-            <div class="card-box align-items-center justify-content-space-between">
+      <section class="Recharge_Télécom_Internet pt-3 d-none">
+         <div class="row gap-2 flex-wrap bg-grey justify-content-center pt-4">
+            <div  class="recharge card-box align-items-center justify-content-space-between ">
                <img src="../images/100.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 10dhs</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class="recharge card-box align-items-center justify-content-space-between ">
                <img src="../images/2.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 10dhs</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class="recharge card-box align-items-center justify-content-space-between">
                <img src="../images/3.png" alt="telecom">
                <div class="card-text">
 
                   <p class="mb-0 fs-12">À partir de 10dhs</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class="recharge card-box align-items-center justify-content-space-between">
                <img src="../images/5.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 10dhs</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class="recharge card-box align-items-center justify-content-space-between">
                <img src="../images/6.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 50dhs</p>
                </div>
             </div>
-            <div class="card-box  align-items-center justify-content-space-between">
+            <div class="recharge card-box  align-items-center justify-content-space-between">
                <img src="../images/7.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 50dhs</p>
                </div>
             </div>
-            <div class="card-box">
+            <div class="recharge card-box">
                <img src="../images/8.jpg" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 49dhs</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class="recharge card-box align-items-center justify-content-space-between">
                <img src="../images/téléchargement (1) 1.png" alt="telecom">
                <div class="card-text">
                   <p class="mb-0 fs-12">À partir de 10dhs</p>
                </div>
             </div>
+            <div class="p-5 m-5">
+
+            </div>
          </div>
+
+
       </section>
+ <!-- Formulaire -->
+      <section class="pt-3 ">
+ <div class="container py-5 bg-grey ">
+  <div class="row justify-content-center bg-grey ">
+    <div class="col-12 col-md-8 col-lg-8">
+
+      <div class="card border-0  bg-grey p-4" >
+
+        <form>
+          <!-- Numéro de téléphone -->
+          <div class="mb-4 text-center">
+            <label for="phone" class="form-label d-block">N° de téléphone</label>
+            <input type="text" class="form-control form-control-compact " id="phone" placeholder="N° de téléphone">
+          </div>
+
+          <!-- Montant -->
+          <div class="mb-4 text-center ">
+            <label class="form-label ">Montant</label>
+            <div class="d-flex justify-content-center gap-2 align-items-center ">
+              <select class="form-select form-select-compact" id="montant">
+                <option value="">Choisir...</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+              </select>
+            </div>
+          </div>
+          <div class=" d-flex justify-content-center ">
+            <label for=""  class=" form-label d-block"> Choisir type de recharge...</label>
+
+          </div>
+
+           <div class="d-flex justify-content-center gap-2 align-items-center">
+
+              <select class="form-select form-select-compact" id="montant">
+                <option value="">Choisir type de recharge...</option>
+                <option value="">*1</option>
+                <option value="">*2</option>
+                <option value="">*3</option>
+                <option value="">*5</option>
+                <option value="">*6</option>
+                <option value="">*9</option>
+              </select>
+            </div>
+          
+          
+          <div class=" d-flex justify-content-between mt-4 justify-content-center">
+            <button type="button" class=" button-background-orange p-2   rounded-2 buttonvalide">
+              Ajouter au Favoris
+            </button>
+            <button type="button" class=" button-background-orange p-2 rounded-2 buttonvalide1 buttonvalide  ">
+              VALIDER
+            </button>
+          </div>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
+
+      </section>
+    
    </main>
 
    <script src="../js/Recharge_Télécom_Internet.js"></script>
