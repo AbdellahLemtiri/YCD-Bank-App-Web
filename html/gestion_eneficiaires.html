@@ -50,7 +50,7 @@
                     </a>
 
                     <a href="" class="d-flex align-items-center gap-2   text-decoration-none text-dark">
-                        <div> <i  class="bi bi-box-arrow-right " id=""></i> <span>Déconnexion</span></div>
+                        <div> <i class="bi bi-box-arrow-right " id=""></i> <span>Déconnexion</span></div>
                     </a>
                 </div>
             </div>
@@ -203,7 +203,7 @@
                     Gérer votre Bénéficiaire
                 </div>
             </div>
-            </div>
+
             <div class=" row  p-3 mb-3  bg-light ">
                 <div class=" col-4  col-md-3 fs-12  d-flex align-items-center">
                     <input type="text" placeholder="Rechercher un bénéficiaire" id="inputRecherche"
@@ -239,11 +239,32 @@
                     </select>
                 </div>
             </div>
-
+            <div id="model_modification"
+                class=" justify-content-center align-items-center fs-12 position-absolute row   d-none">
+                <div class="d-flex flex-column p-3 border-1  bg-grey col-8 col-md-6">
+                    <div class="d-flex justify-content-between">
+                        <span>titre</span>
+                        <button class="bg-opacity-0 border-0" id="buttonclosemodel">X</button>
+                    </div>
+                    <div class="justify-content-center d-flex align-items-center">
+                        <form action="" class="row gap-2 ">
+                            <span class="col-4"> nom </span> <input id="nommodifier" type="text" class="col-6">
+                            <span class="col-4">RIB </span> <input id="comptenodifier" type="text" class="col-6">
+                            <span class="col-4"> beneficaire : </span>
+                            <select class="col-6">
+                                <option value="ycd">YCD</option>
+                                <option value="autre">autre</option>
+                            </select>
+                            <button id="buttonsavemodification" class="col-4">save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="row gap-4 p-4 fs-12  " id="interfacelistbeneficaire">
                 <!-- les carte de beneficaires -->
 
             </div>
+
         </section>
 
 
