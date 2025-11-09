@@ -25,7 +25,6 @@ let formAjoutBeneficaire2 = document.getElementById('formAjoutBeneficaire2')
 verementButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceVerement, interfaceAjouteBenef, interfacegestionBenef)
     changebuttonSection(verementButtonSection, ajoutBeneficiaireButtonSection, gestionBeneficiaireButtonSection)
-    console.log("hhhh")
 })
 ajoutBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceAjouteBenef, interfaceVerement, interfacegestionBenef)
@@ -35,8 +34,7 @@ ajoutBeneficiaireButtonSection.addEventListener("click", function () {
 gestionBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfacegestionBenef, interfaceVerement, interfaceAjouteBenef)
     changebuttonSection(gestionBeneficiaireButtonSection, verementButtonSection, ajoutBeneficiaireButtonSection)
-
-
+    updatecart()
 })
 
 choixcompteBeneficaire1.addEventListener("click", function () {
@@ -100,6 +98,39 @@ function changeVisibilite(cardVisible, cardInvisible) {
     cardInvisible.classList.add('d-none');
     cardVisible.classList.remove('d-none');
 }
+
+
+
+
+let idsalut = document.getElementById('idsalut')
+let sectionInfoCompte = document.getElementById('sectionInfoCompte') 
+
+chargeinfodecompte()
+function chargeinfodecompte() {
+    let compte = JSON.parse(localStorage.getItem('compte'))
+    let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
+    idsalut.innerText = "Bonjour " + nomcomplet
+    let div = document.createElement('div')
+    div.setAttribute('class', 'd-flex justify-content-between align-items-center  pb-1')
+    div.innerHTML = ` <div class=" ">
+                    <div class="fs-12 fw-bold  text-orange">
+                        compte de debiter
+                    </div>
+                    <div class="fs-12">
+                        ${nomcomplet}
+                    </div>
+                    <div class="fs-12">
+                        ${compte.ribComptePrincipal.numeroCompte}
+                    </div>
+                </div>
+                <div class="align-self-end fs-12 fw-bold text-success">${compte.ribComptePrincipal.sold} DH</div>`
+    sectionInfoCompte.appendChild(div)
+}
+
+
+
+
+
 
 
 
