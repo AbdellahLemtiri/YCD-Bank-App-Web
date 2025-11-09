@@ -25,7 +25,6 @@ let formAjoutBeneficaire2 = document.getElementById('formAjoutBeneficaire2')
 verementButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceVerement, interfaceAjouteBenef, interfacegestionBenef)
     changebuttonSection(verementButtonSection, ajoutBeneficiaireButtonSection, gestionBeneficiaireButtonSection)
-    console.log("hhhh")
 })
 ajoutBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfaceAjouteBenef, interfaceVerement, interfacegestionBenef)
@@ -35,8 +34,7 @@ ajoutBeneficiaireButtonSection.addEventListener("click", function () {
 gestionBeneficiaireButtonSection.addEventListener("click", function () {
     switchInterfaceSection(interfacegestionBenef, interfaceVerement, interfaceAjouteBenef)
     changebuttonSection(gestionBeneficiaireButtonSection, verementButtonSection, ajoutBeneficiaireButtonSection)
-
-
+    updatecart()
 })
 
 choixcompteBeneficaire1.addEventListener("click", function () {
