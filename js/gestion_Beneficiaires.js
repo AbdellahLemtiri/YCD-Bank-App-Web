@@ -5,6 +5,7 @@ updatecart()
 
 function updatecart() {
     let listBeneficiaire = JSON.parse(localStorage.getItem('tabBeneficaires'))
+    interfacelistbeneficaire.innerHTML = ""
     listBeneficiaire.forEach(bebeficaire => {
         let div = document.createElement('div')
         div.setAttribute('class', ' col-11 col-sm-11 col-md-5 col-lg-3 d-flex flex-column justify-content-center align-items-center border-1')
@@ -27,7 +28,8 @@ function updatecart() {
 
 interfacelistbeneficaire.addEventListener('click', (e) => {
     let elementclik = e.target
-    let idcard = elementclik.getAttribute('id');
+    let idcard = elementclik.closest('div').getAttribute('id');  // gei id from card 
+    console.log(idcard)
     if (elementclik.tagName === "IMG") {
         let ner = elementclik.closest('div').lastChild.classList.toggle('d-none')
         console.log(ner)
@@ -36,6 +38,8 @@ interfacelistbeneficaire.addEventListener('click', (e) => {
         let action = elementclik.closest('A').getAttribute("data-role")
         if (action == "supprimer")
             supprimer(idcard)
+        if (action == "activer")
+            activerDesctever(idcard, "etat")
     }
 
 })
@@ -43,9 +47,24 @@ interfacelistbeneficaire.addEventListener('click', (e) => {
 
 function supprimer(id) {
     let listebenef = JSON.parse(localStorage.getItem("tabBeneficaires")) || []
+    console.log(id)
     let index = listebenef.findIndex((benef) => benef.idBeneficiare == id)
     if (confirm("suppp")) {
         listebenef.splice(index);
+        localStorage.setItem('tabBeneficaires', JSON.stringify(listebenef))
+        updatecart()
+    }
+}
+
+function activerDesctever(id, etat) {
+    let listebenef = JSON.parse(localStorage.getItem("tabBeneficaires")) || []
+    if (confirm("active")) {
+        listebenef.map((benef) => {
+            if (benef.idBeneficiare == id) {
+                benef.etat = etat
+            }
+            return benef
+        });
         localStorage.setItem('tabBeneficaires', JSON.stringify(listebenef))
         updatecart()
     }
