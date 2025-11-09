@@ -15,9 +15,9 @@ function updatecart() {
                     <button class="bg-opacity-0 border-0 align-self-end "><img src="../images/Collapse-icon.png"
                             alt=""></button>
                     <ul class="d-none list-group ls-none ">
-                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#"> activer</a></li>
-                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#"> modifer</a></li>
-                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#"> supprimer 3</a>
+                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#" data-role="activer" > activer</a></li>
+                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#" data-role="modifer" > modifer</a></li>
+                        <li class=""><a class="text-decoration-none text-dark fs-12 fw-bold" href="#" data-role="supprimer" > supprimer 3</a>
                         </li>
                     </ul>`
         interfacelistbeneficaire.appendChild(div)
@@ -25,5 +25,28 @@ function updatecart() {
     });
 }
 
-// 
+interfacelistbeneficaire.addEventListener('click', (e) => {
+    let elementclik = e.target
+    let idcard = elementclik.getAttribute('id');
+    if (elementclik.tagName === "IMG") {
+        let ner = elementclik.closest('div').lastChild.classList.toggle('d-none')
+        console.log(ner)
+    }
+    if (elementclik.tagName === "A") {
+        let action = elementclik.closest('A').getAttribute("data-role")
+        if (action == "supprimer")
+            supprimer(idcard)
+    }
 
+})
+
+
+function supprimer(id) {
+    let listebenef = JSON.parse(localStorage.getItem("tabBeneficaires")) || []
+    let index = listebenef.findIndex((benef) => benef.idBeneficiare == id)
+    if (confirm("suppp")) {
+        listebenef.splice(index);
+        localStorage.setItem('tabBeneficaires', JSON.stringify(listebenef))
+        updatecart()
+    }
+}
