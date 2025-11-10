@@ -64,11 +64,11 @@
 
     </header>
 
-    <main class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10  p-4 p-lg-3">
+    <main class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10  p-4 p-lg-3 ">
 
         <!-- section de qui affiche le message de bienvenue et icon de mode nuit et notification -->
         <div class=" d-flex justify-content-between align-items-center border-orange-bottom pb-2 ">
-            <div class="fs-16 p-1" id="idsalut" > </div>
+            <div class="fs-16 p-1" id="idsalut"> </div>
             <div><i class="bi bi-person-circle" id=""></i>
                 <i class="bi bi-sun" id=""></i>
                 <!-- <i class="bi bi-moon" id=""></i> -->
@@ -76,8 +76,64 @@
             </div>
         </div>
 
-        <section id="sectionInfoCompte">
-            
+        <section id="sectionInfoCompte " class="d-flex justify-content-center ">
+
+            <div class=" rounded-4 w-75 card text-center shadow-sm ">
+
+                <!-- =========donnee prancipale de compte 1 -->
+              
+                <div id="compte1" class="compte1 ">
+                    <div class="d-flex  justify-content-between">
+                            <h6 class="fs-14">Compte chèques</h6>
+  <div id="pointsc1" class="points d-flex justify-content-end gap-2">
+                        <span id="point1" class="point1"></span>
+                        <span id="point2" class="point2" style="opacity:0.5;"></span>
+                    </div>
+                
+                </div>
+
+                    <p class="fs-14">111222222333333344444</p>
+                    <h5 class="solde text-success fs-12"> votre Solde </h5>
+
+                    <div class="d-none " id="affichier_solde">
+                        <h6 class="solded">0</h6>
+                        <i id="noeye" class=" bi bi-eye-slash icon "></i>
+                    </div>
+
+                    <div class="" id="nonaffichier_solde">
+                        <h6 class="solded fw-bold">******** </h6>
+                        <i id="eye" class="bi bi-eye icon"></i>
+                    </div>
+                </div>
+
+                <!-- =========donnee prancipale de compte 2 -->
+
+                <div id="compte2" class="compte2  d-none">
+                    <div class="d-flex justify-content-between">
+                         <h6 class="fs-14">Compte épargne</h6>
+                    <div id="pointsc2" class="points d-flex justify-content-end gap-2">
+                        <span id="point1" class="point1" style="opacity:0.5;"></span>
+                        <span id="point2" class="point2"></span>
+                    </div>
+
+                    </div>
+                   
+                    <p class="fs-14">22222222222222222222</p>
+                    <h5 class="solde text-success fs-12 "> votre Solde </h5>
+
+
+                    <div class="d-none " id="affichier_solde2">
+                        <h6 class="solded">0</h6>
+                        <i id="noeye2" class=" bi bi-eye-slash icon "></i>
+                    </div>
+
+                    <div class="" id="nonaffichier_solde2">
+                        <h6 class="solded fw-bold">******** </h6>
+                        <i id="eye2" class="bi bi-eye icon"></i>
+                    </div>
+
+                </div>
+            </div>
 
         </section>
 
