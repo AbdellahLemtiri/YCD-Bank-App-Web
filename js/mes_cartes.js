@@ -66,7 +66,7 @@ function chargeinfodecompte(etat) {
 }
 
 document.getElementById('bloquedebloque').addEventListener('click', function () {
-    if (confirm('Voulez-vous vraiment changer l\'état du compte principal ')) {
+    if (confirm('Voulez-vous vraiment changer létat du compte principal ')) {
         let compte = JSON.parse(localStorage.getItem('compte'))
         if (compte.ribComptePrincipal.etat == 'active')
             compte.ribComptePrincipal.etat = 'desacive'
@@ -81,7 +81,7 @@ interfacedegestiondescarte.addEventListener('click', (e) => {
     let elementclik = e.target
     console.log(elementclik)
     let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
-
+    console.log(idcard)
     if (elementclik.tagName === "IMG") {
         let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
         console.log(ner)
