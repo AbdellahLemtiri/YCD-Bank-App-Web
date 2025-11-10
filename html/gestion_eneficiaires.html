@@ -241,21 +241,24 @@
             </div>
             <div id="model_modification"
                 class=" justify-content-center align-items-center fs-12 position-absolute row   d-none">
-                <div class="d-flex flex-column p-3 border-1  bg-grey col-8 col-md-6">
+                <div class="d-flex flex-column p-3 border-1  bg-light col-8 col-md-6">
                     <div class="d-flex justify-content-between">
                         <span>titre</span>
-                        <button class="bg-opacity-0 border-0" id="buttonclosemodel">X</button>
+                        <button class="bg-opacity-0 border-0 text-danger fw-bold" id="buttonclosemodel">X</button>
                     </div>
                     <div class="justify-content-center d-flex align-items-center">
                         <form action="" class="row gap-2 ">
-                            <span class="col-4"> nom </span> <input id="nommodifier" type="text" class="col-6">
-                            <span class="col-4">RIB </span> <input id="comptenodifier" type="text" class="col-6">
+                            <span class="col-4 "> nom: </span> <input id="nommodifier" type="text"
+                                placeholder="nouveau nom" class=" border-sm-1 col-6">
+                            <span class="col-4">RIB: </span> <input id="comptenodifier" type="number"
+                                placeholder="nouveau RIB" class="border-sm-1  col-6">
                             <span class="col-4"> beneficaire : </span>
-                            <select class="col-6">
+                            <select class="col-6 border-sm-1 " id="typedemodifierselect">
                                 <option value="ycd">YCD</option>
-                                <option value="autre">autre</option>
+                                <option value="autre">Autre</option>
                             </select>
-                            <button id="buttonsavemodification" class="col-4">save</button>
+                            <button id="buttonsavemodification"
+                                class="border-sm-1  bg-orange text-white fw-bold col-4">save</button>
                         </form>
                     </div>
                 </div>

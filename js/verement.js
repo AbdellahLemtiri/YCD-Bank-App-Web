@@ -8,7 +8,9 @@ let verementButton = document.getElementById('verementButton')
 uotadelisteBenef();
 
 inputMontant.addEventListener("keyup", function () {
-    if (inputMontant.value > 0 && inputMontant.value < 100000)
+    let compte = JSON.parse(localStorage.getItem('compte'))
+    let sold = compte.ribComptePrincipal.sold
+    if (inputMontant.value > 0 && inputMontant.value < sold)
         change_border_to_success(inputMontant)
     else
         change_border_to_error(inputMontant)
@@ -33,6 +35,9 @@ verementButton.addEventListener("click", function () {
         if (confirm("vous voullez  ajoute ?")) {
             let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || []
             listTransaction.push(creeTransaction());
+            let compte = JSON.parse(localStorage.getItem('compte'))
+            compte.ribComptePrincipal.sold -= inputMontant.value
+            localStorage.setItem('compte', JSON.stringify(compte))
             localStorage.setItem('listTransaction', JSON.stringify(listTransaction))
         }
     }
@@ -85,8 +90,28 @@ function uotadelisteBenef() {
 let inputMontantamoi = document.getElementById('inputMontantamoi')
 let verementButtonamoi = document.getElementById('verementButtonamoi')
 inputMontantamoi.addEventListener("keyup", function () {
-    if (inputMontantamoi.value > 0 && inputMontantamoi.value < 100000)
+    let compte = JSON.parse(localStorage.getItem('compte'))
+    let sold = compte.ribComptePrincipal.sold
+    if (inputMontantamoi.value > 0 && inputMontantamoi.value < sold)
         change_border_to_success(inputMontantamoi)
     else
         change_border_to_error(inputMontantamoi)
+})
+
+
+
+verementButtonamoi.addEventListener("click", function () {
+    if (inputMontantamoi.value > 0) {
+        if (confirm("vous voullez  ajoute ?")) {
+            let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || []
+            listTransaction.push(creeTransaction());
+            let compte = JSON.parse(localStorage.getItem('compte'))
+            compte.ribComptePrincipal.sold -= inputMontantamoi.value
+            let sold = parseInt(compte.ribCompteEparne.sold) + parseInt(inputMontantamoi.value)
+            compte.ribCompteEparne.sold = sold
+            localStorage.setItem('compte', JSON.stringify(compte))
+            localStorage.setItem('listTransaction', JSON.stringify(listTransaction))
+        }
+    }
+    else alert("error")
 })
