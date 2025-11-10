@@ -160,6 +160,7 @@
                         <!-- Montant -->
                         <div class="mb-2 text-center ">
                            <label class="form-label ">Montant</label>
+                          
                            <div class="d-flex justify-content-center gap-2 align-items-center ">
                               <select class="form-select form-select-compact" id="montantR">
                                  <option value="10">10</option>
@@ -172,7 +173,8 @@
                               </select>
 
                            </div>
-                           <div id="infomontant" class="text-orange"></div>
+
+                           <div id="infomontant" class="text-danger"></div>
 
                         </div>
                         <div class=" d-flex justify-content-center ">
@@ -206,10 +208,12 @@
                            id="imgsucces">
                            <img class="rounded-2" src="../images/téléchargement.png" alt="">
                            <p class="fs-14">la racharge a ete effectué avec succès</p>
-                           <button type="button" class="btn btn-success">Success</button>
-                           <button type="button" class="btn btn-light">Light</button>
+                           <div class=" d-flex gap-4 justify-content-around">
+                           <button id="btn_acheter_autre_racharge"  type="button" class="btn  btn-success">Acheter une autre racharge </button>
+                           <button id="buttonaccuile" type="button" class="btn button-background-orange btn-warning">Accuile </button>
+                           </div>
                         </div>
-                        <div class=" d-flex justify-content-between mt-4 justify-content-center">
+                        <div class=" d-flex justify-content-between mt-4 gap-2 justify-content-center">
                            <button id="FavorisR" type="button"
                               class=" button-background-orange p-2   rounded-2 buttonvalide">
                               Ajouter au Favoris

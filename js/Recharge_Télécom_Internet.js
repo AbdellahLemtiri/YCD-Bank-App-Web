@@ -8,7 +8,7 @@ recharges.forEach(recharge => {
     })
 });
 const typeR = document.getElementById("typeR");
-const montantR = document.getElementById("montantR");
+const montantR = document.getElementById("montantR").value;
 const infomontant = document.getElementById('infomontant');
 const phoneR = document.getElementById("phoneR");
 const infonum = document.getElementById('infonum');
@@ -17,32 +17,62 @@ const FavorisR = document.getElementById('FavorisR');
 const container_alias = document.getElementById('container_alias');
 const infoalias = document.getElementById('infoalias');
 const aliasR = document.getElementById('aliasR');
-imgsucces = document.getElementById('imgsucces');
+const imgsucces = document.getElementById('imgsucces');
+const buttonaccuile = document.getElementById('buttonaccuile');
 let cmptR = 0;
-FavorisR.addEventListener('click', () => {
-    container_alias.classList.remove('d-none');
-    FavorisR.classList.add('d-none');
-})
-valideR.addEventListener('click', () => {
-    if (phoneR.value.length > 10 || phoneR.value.length < 10) {
-        infonum.innerHTML = 'N° de phone invalide ! '
-    }
-    else if (aliasR.value.length > 20) {
-        infoalias.innerHTML = 'Pas plus de 20 caracteres';
-    }
-    else if (aliasR.value.length < 2) {
-        infoalias.innerHTML = 'Pas moins de 2 caracteres'
-    }
-    else {
+let Favoris = 0;
+let btn_acheter_autre_racharge = document.getElementById('btn_acheter_autre_racharge');
+btn_acheter_autre_racharge.addEventListener('click', () => {
+    container_recharge.classList.remove('d-none');
+    imgsucces.classList.add('d-none');
+    container_for_recharge.classList.add('d-none');
+    infonum.innerHTML = '';
+    infoalias.innerHTML = '';
 
-        infonum.innerHTML = '';
-        infoalias.innerHTML = '';
-        imgsucces.classList.remove('d-none');
-    }
-  
+})
+buttonaccuile.addEventListener('click', () => {
+    Window.location.href = 'future/dashboard_1.html'
 });
 
 
 
+FavorisR.addEventListener('click', () => {
+    container_alias.classList.remove('d-none');
+    FavorisR.classList.add('d-none');
+    Favoris = 1;
+});
 
 
+valideR.addEventListener('click', () => {
+
+    infonum.innerHTML = '';
+    infoalias.innerHTML = '';
+    imgsucces.classList.add('d-none');
+
+    let erreur = false;
+    if (phoneR.value.length !== 10) {
+        infonum.innerHTML = 'N° de téléphone invalide !';
+        erreur = true;
+    }
+    //  important
+    // if(montantR > solde){
+    //     erreur = true;
+    //     infomontant.innerHTML = "Votre solde est insuffisant !";
+    // }
+
+    if (Favoris === 1) {
+        if (aliasR.value.length < 2) {
+            infoalias.innerHTML = 'Pas moins de 2 caractères';
+            erreur = true;
+        }
+        else if (aliasR.value.length > 20) {
+            infoalias.innerHTML = 'Pas plus de 20 caractères';
+            erreur = true;
+        }
+    }
+   
+
+    if (erreur === false) {
+        imgsucces.classList.remove('d-none');
+    }
+});
