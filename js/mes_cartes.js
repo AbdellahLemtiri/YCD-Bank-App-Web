@@ -5,11 +5,14 @@ let idsalut = document.getElementById('idsalut')
 let sectionInfoCompte = document.getElementById('sectionInfoCompte')
 let moncarte = document.getElementById('moncarte')
 
-chargeinfodecompte()
-function chargeinfodecompte() {
+chargeinfodecompte(false)
+function chargeinfodecompte(etat) {
     let compte = JSON.parse(localStorage.getItem('compte'))
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
     idsalut.innerText = "Bonjour " + nomcomplet
+
+
+
     let div = document.createElement('div')
     div.setAttribute('class', 'd-flex justify-content-between align-items-center  pb-1')
     div.innerHTML = ` <div class=" ">
@@ -24,10 +27,25 @@ function chargeinfodecompte() {
                     </div>
                 </div>
                 <div class="align-self-end fs-12 fw-bold text-success">${compte.ribComptePrincipal.sold} DH</div>`
+    sectionInfoCompte.innerHTML = ""
     sectionInfoCompte.appendChild(div)
 
     let divcarte = document.createElement('div')
-    divcarte.setAttribute('class', 'card d-flex flex-column gap-4 p-4 bg-carte text-white m-2')
+    divcarte.setAttribute('class', 'card d-flex flex-column gap-4 p-4 text-white m-2')
+
+    if (compte.ribComptePrincipal.etat == "active") {
+        document.getElementById('bloquedebloque').classList.add('justify-content-end')
+        divcarte.classList.add('bg-carte')
+        document.getElementById('etatdecarte').textContent = "carte debloquee"
+
+    } else {
+        compte.ribComptePrincipal.etat = 'active'
+        document.getElementById('bloquedebloque').classList.remove('justify-content-end')
+        document.getElementById('etatdecarte').textContent = "carte bloquee"
+        divcarte.classList.add('bg-grey')
+    }
+
+    moncarte.innerHTML = ""
     divcarte.innerHTML = ` <span class="fw-bold">YCD Bank</span>
                     <span class=""> ${compte.ribComptePrincipal.numeroCompte}</span>
                     <div class="d-flex justify-content-between gap-4 fs-14">
@@ -44,12 +62,37 @@ function chargeinfodecompte() {
 
                         </div>
                     </div>`
-    moncarte.prepend(divcarte)
-
-
-
-
+    moncarte.append(divcarte)
 }
+
+document.getElementById('bloquedebloque').addEventListener('click', function () {
+    if (confirm('Voulez-vous vraiment changer l\'état du compte principal ')) {
+        let compte = JSON.parse(localStorage.getItem('compte'))
+        if (compte.ribComptePrincipal.etat == 'active')
+            compte.ribComptePrincipal.etat = 'desacive'
+        else compte.ribComptePrincipal.etat = 'active'
+        localStorage.setItem('compte', JSON.stringify(compte))
+        chargeinfodecompte(true)
+    }
+})
+
+let interfacedegestiondescarte = document.getElementById('interfacedegestiondescarte')
+interfacedegestiondescarte.addEventListener('click', (e) => {
+    let elementclik = e.target
+    console.log(elementclik)
+    let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
+
+    if (elementclik.tagName === "IMG") {
+        let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
+        console.log(ner)
+    }
+
+
+})
+
+
+
+
 
 
 
