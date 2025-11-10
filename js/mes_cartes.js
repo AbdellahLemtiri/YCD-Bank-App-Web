@@ -45,11 +45,40 @@ function chargeinfodecompte() {
                         </div>
                     </div>`
     moncarte.prepend(divcarte)
-
-
-
-
 }
+
+document.getElementById('bloquedebloque').addEventListener('click',function(){
+    document.getElementById('bloquedebloque').classList.toggle('justify-content-end')
+})
+
+let interfacedegestiondescarte = document.getElementById('interfacedegestiondescarte')
+interfacedegestiondescarte.addEventListener('click', (e) => {
+    let elementclik = e.target
+    console.log(elementclik)
+    let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
+    console.log(idcard)
+    if (elementclik.tagName === "IMG") {
+        let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
+        console.log(ner)
+    }
+    // }
+    // if (elementclik.tagName === "A") {
+    //     let action = elementclik.closest('A').getAttribute("data-role")
+    //     console.log(action)
+    //     if (action == "supprimer")
+    //         supprimer(idcard)
+    //     if (action == "activer" || action == "desactiver")
+    //         activerDesctever(idcard, action)
+    //     if (action == "modifier")
+    //         model_modification(idcard)
+
+    // }
+
+})
+
+
+
+
 
 
 

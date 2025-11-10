@@ -57,7 +57,7 @@
         </nav>
         <div class="col-2 col-lg-12   d-lg-none  d-flex justify-content-end align-items-start">
             <button type="button" id="navbar-button" class=" bg-opacity -0 border -0" aria-label="nav bar ">
-                al
+                nav
             </button>
 
         </div>
@@ -83,7 +83,7 @@
                 <div class="fs-12 fw-bold p-3 text-orange">
                     Mes Cartes
                 </div>
-                 
+
             </div>
         </section>
 
@@ -97,8 +97,9 @@
                         <span>Blogage</span>
                         <span>carte debloquee</span>
                     </div>
-                    <div> 
-                        <div class="bg-grey d-flex justify-content-end" style="width: 40px; border-radius: 10px;"> <span class="p-2 bg-orange  " style=" border-radius: 100%;" ></span></div>
+                    <div>
+                        <div class="bg-grey d-flex justify-content-end" style="width: 40px; border-radius: 10px;" id="bloquedebloque"> <span
+                                class="p-2 bg-orange  " style=" border-radius: 100%;"></span></div>
                     </div>
                 </div>
             </div>
@@ -106,56 +107,56 @@
                 <div class="d-flex bg-orange justify-content-center text-white p-2 fs-14">
                     <span>gerer votre carte</span>
                 </div>
-                <div class="d-flex flex-column align-items-center">
-                    <div class="border-1 col-10 m-2 d-flex align-items-center justify-content-between fs-12 ">
-                        <span>Retrait</span>
-                        <div class="d-flex flex-column">
-                            <button class="bg-opacity-0 border-0"><img src="../images/Collapse-icon.png"
-                                    alt="button"></button>
-                            <ul class="d-none">
-                                <li>xxxxx</li>
-                            </ul>
+                <div class="d-flex flex-column align-items-center" id="interfacedegestiondescarte">
+
+
+                    <div class="border-1 col-10 col-md-10 m-2 d-flex  flex-column fs-12 " id="1">
+                        <div class="d-flex justify-content-between">
+                            <span>Retrait</span>
+                            <button class="bg-opacity-0 border-0  ">
+                                <img src="../images/Collapse-icon.png" alt="button">
+                            </button>
                         </div>
+
+                        <ul class="d-none  ls-none col-11">
+                            <li class="ls-none">xxxxx</li>
+                        </ul>
                     </div>
-                    <div class="border-1 col-10 col-md-10 m-2 d-flex align-items-center justify-content-between fs-12 ">
-                        <span>Paiement par carte</span>
-                        <div class="d-flex flex-column">
-                            <button class="bg-opacity-0 border-0"><img src="../images/Collapse-icon.png"
-                                    alt="button"></button>
-                            <ul class="d-none">
-                                <li>xxxxx</li>
-                            </ul>
+                    <div class="border-1 col-10 col-md-10 m-2 d-flex  flex-column fs-12 " id="2">
+                        <div class="d-flex justify-content-between">
+                            <span>Paiement par carte</span>
+                            <button class="bg-opacity-0 border-0  ">
+                                <img src="../images/Collapse-icon.png" alt="button">
+                            </button>
                         </div>
+
+                        <ul class="d-none  ls-none col-11">
+                            <li class="ls-none">xxxxx</li>
+                        </ul>
                     </div>
-                    <div class="border-1 col-10 col-md-10 m-2 d-flex align-items-center justify-content-between fs-12 ">
-                        <span>Paiement par carte</span>
-                        <div class="d-flex flex-column">
-                            <button class="bg-opacity-0 border-0"><img src="../images/Collapse-icon.png"
-                                    alt="button"></button>
-                            <ul class="d-none">
-                                <li>xxxxx</li>
-                            </ul>
+                    <div class="border-1 col-10 col-md-10 m-2 d-flex  flex-column fs-12 " id="3">
+                        <div class="d-flex justify-content-between">
+                            <span>Paiement sur internet</span>
+                            <button class="bg-opacity-0 border-0  ">
+                                <img src="../images/Collapse-icon.png" alt="button">
+                            </button>
                         </div>
+
+                        <ul class="d-none  ls-none col-11">
+                            <li class="ls-none">xxxxx</li>
+                        </ul>
                     </div>
-                    <div class="border-1 col-10 col-md-10 m-2 d-flex align-items-center justify-content-between fs-12 ">
-                        <span>Paiement sur internet</span>
-                        <div class="d-flex flex-column">
-                            <button class="bg-opacity-0 border-0"><img src="../images/Collapse-icon.png"
-                                    alt="button"></button>
-                            <ul class="d-none">
-                                <li>xxxxx</li>
-                            </ul>
+                    <div class="border-1 col-10 col-md-10 m-2 d-flex  flex-column fs-12 " id="4">
+                        <div class="d-flex justify-content-between">
+                            <span>Paiement sans contact</span>
+                            <button class="bg-opacity-0 border-0  ">
+                                <img src="../images/Collapse-icon.png" alt="button">
+                            </button>
                         </div>
-                    </div>
-                    <div class="border-1 col-10 col-md-10 m-2 d-flex align-items-center justify-content-between fs-12 ">
-                        <span>Paiement sans contact</span>
-                        <div class="d-flex flex-column">
-                            <button class="bg-opacity-0 border-0"><img src="../images/Collapse-icon.png"
-                                    alt="button"></button>
-                            <ul class="d-none">
-                                <li>xxxxx</li>
-                            </ul>
-                        </div>
+
+                        <ul class="d-none  ls-none col-11">
+                            <li class="ls-none">xxxxx</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -166,6 +167,7 @@
     </main>
 
     <script src="../js/mes_cartes.js"></script>
+    <script src="../js/navbar.js"></script>
 
 </body>
 
