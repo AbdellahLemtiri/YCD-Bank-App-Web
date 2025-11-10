@@ -36,9 +36,12 @@ function chargeinfodecompte(etat) {
     if (compte.ribComptePrincipal.etat == "active") {
         document.getElementById('bloquedebloque').classList.add('justify-content-end')
         divcarte.classList.add('bg-carte')
+        document.getElementById('etatdecarte').textContent = "carte debloquee"
+
     } else {
         compte.ribComptePrincipal.etat = 'active'
         document.getElementById('bloquedebloque').classList.remove('justify-content-end')
+        document.getElementById('etatdecarte').textContent = "carte bloquee"
         divcarte.classList.add('bg-grey')
     }
 
@@ -63,12 +66,14 @@ function chargeinfodecompte(etat) {
 }
 
 document.getElementById('bloquedebloque').addEventListener('click', function () {
-    let compte = JSON.parse(localStorage.getItem('compte'))
-    if (compte.ribComptePrincipal.etat == 'active')
-        compte.ribComptePrincipal.etat = 'desacive'
-    else compte.ribComptePrincipal.etat = 'active'
-    localStorage.setItem('compte', JSON.stringify(compte))
-    chargeinfodecompte(true)
+    if (confirm('Voulez-vous vraiment changer l\'état du compte principal ')) {
+        let compte = JSON.parse(localStorage.getItem('compte'))
+        if (compte.ribComptePrincipal.etat == 'active')
+            compte.ribComptePrincipal.etat = 'desacive'
+        else compte.ribComptePrincipal.etat = 'active'
+        localStorage.setItem('compte', JSON.stringify(compte))
+        chargeinfodecompte(true)
+    }
 })
 
 let interfacedegestiondescarte = document.getElementById('interfacedegestiondescarte')
@@ -76,7 +81,7 @@ interfacedegestiondescarte.addEventListener('click', (e) => {
     let elementclik = e.target
     console.log(elementclik)
     let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
-    console.log(idcard)
+
     if (elementclik.tagName === "IMG") {
         let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
         console.log(ner)
