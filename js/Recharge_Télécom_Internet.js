@@ -17,6 +17,7 @@ const FavorisR = document.getElementById('FavorisR');
 const container_alias = document.getElementById('container_alias');
 const infoalias = document.getElementById('infoalias');
 const aliasR = document.getElementById('aliasR');
+imgsucces = document.getElementById('imgsucces');
 let cmptR = 0;
 FavorisR.addEventListener('click', () => {
     container_alias.classList.remove('d-none');
@@ -33,16 +34,13 @@ valideR.addEventListener('click', () => {
         infoalias.innerHTML = 'Pas moins de 2 caracteres'
     }
     else {
+
         infonum.innerHTML = '';
         infoalias.innerHTML = '';
+        imgsucces.classList.remove('d-none');
     }
-    //      if(montantR.value > 100 || montantR.value < 10){
-    //         infomontant.innerHTML = 'montant invalide !'
-    //     }
-    //     else{
-    //  infomontant.innerHTML='';
-    //     }
-})
+  
+});
 
 
 

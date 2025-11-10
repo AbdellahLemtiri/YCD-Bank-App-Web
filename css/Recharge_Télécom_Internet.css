@@ -165,3 +165,14 @@
      .buttonvalide1{
         min-width: 150px;
      }
+     #imgsucces{
+       
+        background-color: #ffffff;
+        width: 80%;
+        height: 80%;
+
+     }
+     #imgsucces img{
+        width: 50%;
+        height: 50%;
+     }
