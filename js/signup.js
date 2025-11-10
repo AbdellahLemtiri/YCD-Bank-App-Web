@@ -1,5 +1,5 @@
-if (localStorage.getItem("login") == "seccuss")
-    window.location.href = "dashboard.html";
+// if (localStorage.getItem("login") == "seccuss")
+//     window.location.href = "dashboard.html";
 
 
 // signup.js
@@ -321,14 +321,19 @@ function ajouterINformationEtape1() {
 // pour la deuxieme etape
 
 function ajouterINformationEtape2() {
+    let idcompte = localStorage.getItem('compte') || 0;
+    compte.idcompte = idcompte
     compte.prenom = inputFirstName.value
     compte.nom = inputLastName.value
     compte.numeroCarteNationale = numeroCarteNationale.value
     compte.genre = selectGenre.value
     compte.dateNaissance = dateNaissance.value
     compte.lieuNaissance = lieuNaissance.value
+    compte.plafondOperation = 10000
+    compte.plafondQuotidien = 1000
     compte.datecreation = new Date()
     compte.typeactive = "Compte Principal"
+    localStorage.setItem('idcompte', ++idcompte)
 }
 // 3eme etape
 function ajouterINformationEtape3() {
@@ -404,7 +409,7 @@ function genereRIB(sold) {
 
 //  sauvgarder dans localstorage
 function creerCompteDansLLocalStorage() {
-    let listComptes = JSON.parse(localStorage.removeItem("compte")) || []
+    let listComptes = JSON.parse(localStorage.getItem("listComptes")) || []
     listComptes.push(compte);
     localStorage.setItem("listComptes", JSON.stringify(listComptes))
 }
