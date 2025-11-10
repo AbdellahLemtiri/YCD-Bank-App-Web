@@ -18,24 +18,51 @@ inputNumeroCompteBYCD.addEventListener("keyup", function () {
         change_border_to_error(inputNumeroCompteBYCD)
 })
 
-buttonAjoutBeneficaireYCD.addEventListener("click", function () {
-    if (inputNumeroCompteBYCD.value.length === 16 && inputNomCompteBYCD.value.length > 5) {
-        if (confirm("vous voullez  ajoute ?")) {
-            let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
-            let xxx = creeBeneficaire(inputNomCompteBYCD.value, inputNumeroCompteBYCD.value, true)
-            tabBeneficaires.push(xxx);
-            localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
-            vider_champ(inputNomCompteBYCD)
-            vider_champ(inputNumeroCompteBYCD)
-            reset_border(inputNumeroCompteBYCD)
-            reset_border(inputNomCompteBYCD)
-            uotadelisteBenef()
-        }
-    }
-    else
-        alert('les info de champs invalide ')
+// buttonAjoutBeneficaireYCD.addEventListener("click", function () {
+//     if (inputNumeroCompteBYCD.value.length === 16 && inputNomCompteBYCD.value.length > 5) {
+//         if (confirm("vous voullez  ajoute ?")) {
+//             let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
+//             let beneficaire = creeBeneficaire(inputNomCompteBYCD.value, inputNumeroCompteBYCD.value, true)
+//             tabBeneficaires.push(beneficaire);
+//             localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
+//             vider_champ(inputNomCompteBYCD)
+//             vider_champ(inputNumeroCompteBYCD)
+//             reset_border(inputNumeroCompteBYCD)
+//             reset_border(inputNomCompteBYCD)
+//             uotadelisteBenef()
+//         }
+//     }
+//     else
+//         alert('les info de champs invalide ')
 
-})
+// })
+
+
+buttonAjoutBeneficaireYCD.addEventListener("click", function () {
+    let nom = inputNomCompteBYCD.value.trim();
+    let numero = Number(inputNumeroCompteBYCD.value);
+    if (inputNumeroCompteBYCD.value.length === 16 && nom.length > 5) {
+        if (confirm("Voulez-vous ajouter ce bénéficiaire ?")) {
+            let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || [];
+            let nouveauBeneficiaire = creeBeneficaire(nom, numero, true);
+            nouveauBeneficiaire.id = Date.now();
+
+            tabBeneficaires.push(nouveauBeneficiaire);
+            localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires));
+
+            vider_champ(inputNomCompteBYCD);
+            vider_champ(inputNumeroCompteBYCD);
+            reset_border(inputNumeroCompteBYCD);
+            reset_border(inputNomCompteBYCD);
+            uotadelisteBenef();
+
+            alert(" Bénéficiaire ajouté avec succès !");
+        }
+    } else {
+        alert(" Les informations saisies sont invalides !");
+    }
+});
+
 
 
 // functions
@@ -88,7 +115,7 @@ inputNumeroRIB.addEventListener("keyup", function () {
 
 buttonAjoutBeneficaireRIB.addEventListener("click", function () {
     if (inputNumeroRIB.value.length === 24 && inputNomRIB.value.length > 5) {
-        if (confirm("vous voullez  ajoute ?")) {
+        if (confirm("Voulez-vous ajouter ce bénéficiaire  ?")) {
             let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
             tabBeneficaires.push(creeBeneficaire(inputNomRIB.value, inputNumeroRIB.value, false));
             localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
@@ -97,11 +124,11 @@ buttonAjoutBeneficaireRIB.addEventListener("click", function () {
             reset_border(inputNumeroRIB)
             reset_border(inputNomRIB)
             uotadelisteBenef()
+            alert(" Bénéficiaire ajouté avec succès !");
         }
     }
     else
-        alert('les info de champs invalide ')
-
+        alert('Les informations saisies sont invalides !')
 })
 
 
