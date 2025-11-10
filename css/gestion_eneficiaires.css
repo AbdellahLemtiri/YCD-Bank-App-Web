@@ -33,6 +33,13 @@
     margin-bottom: 15px;
 }
 
+.border-sm-1 {
+    border: var(--border-color-grey);
+    border-radius: var(--border-radius);
+    outline: none;
+    margin-bottom: 4px;
+}
+
 .border-top-right-radius-200 {
     border-top-right-radius: 200px;
 
