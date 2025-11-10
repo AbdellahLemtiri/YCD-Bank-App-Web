@@ -81,7 +81,6 @@ interfacedegestiondescarte.addEventListener('click', (e) => {
     let elementclik = e.target
     console.log(elementclik)
     let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
-
     if (elementclik.tagName === "IMG") {
         let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
         console.log(ner)
