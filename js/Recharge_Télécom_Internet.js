@@ -2,7 +2,7 @@ const recharges = document.querySelectorAll('.recharge');
 const container_recharge = document.getElementById('container_recharge');
 const container_for_recharge = document.getElementById('container_for_recharge');
 const typeR = document.getElementById("typeR");
-const montantR = document.getElementById("montantR").value;
+const montantR = document.getElementById("montantR");
 const infomontant = document.getElementById('infomontant');
 const phoneR = document.getElementById("phoneR");
 const infonum = document.getElementById('infonum');
@@ -94,15 +94,15 @@ console.log(nomR);
 }
         imgsucces.classList.remove('d-none');
     }
-    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || []
-    let idTransaction = localStorage.getItem("idTransaction") || 1
+    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [] ;
+    let idTransaction = localStorage.getItem("idTransaction") || 1 ;
     let transaction = {
         idTransaction: idTransaction,
         motif: nomR,
-        montant: montantR,
+        montant: montantR.value,
         datetransaction: new Date()
     }
-    tabhistorique.push(transaction)
+    tabhistorique.push(transaction);
     localStorage.setItem("listTransaction", JSON.stringify(tabhistorique))
     localStorage.setItem("idTransaction", ++idTransaction)
 });
