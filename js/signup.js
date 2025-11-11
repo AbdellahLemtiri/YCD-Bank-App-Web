@@ -328,7 +328,7 @@ function ajouterINformationEtape2() {
     compte.dateNaissance = dateNaissance.value
     compte.lieuNaissance = lieuNaissance.value
     compte.datecreation = new Date()
-    compte.typeactive = "ComptePrincipal"
+    compte.typeactive = "Compte Principal"
 }
 // 3eme etape
 function ajouterINformationEtape3() {
