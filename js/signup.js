@@ -163,10 +163,10 @@ selectGenre.addEventListener('change', function () {
 // event listener pour le bouton createAccountButtonpremier étape 1
 // valider les informations de l'étape 1
 
- 
+
 //
 createAccountButton.addEventListener('click', function () {
-    if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value ) {
+    if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value) {
         ajouterINformationEtape1()
         console.log(compte)
         changeVisibilite(step2, step1)
@@ -181,12 +181,12 @@ createAccountButton.addEventListener('click', function () {
 });
 
 // event listner pour button valide les informations de stpe 2
- // valider les informations de l'étape 2
+// valider les informations de l'étape 2
 
 validateButton.addEventListener('click', function () {
     let getElementByClassBorderSeccuss = document.getElementsByClassName("message-success-border")
     if (getElementByClassBorderSeccuss.length == 12) {
-            // ajouter les information de l'étape 2 au compte
+        // ajouter les information de l'étape 2 au compte
         ajouterINformationEtape2()
         console.log(compte)
         changeVisibilite(step3, step2)
@@ -207,7 +207,7 @@ function finalizeButton() {
     compte.ribComptePrincipal = genereRIB(10000)
     compte.ribCompteEparne = genereRIB(0)
     creerCompteDansLLocalStorage()
-// affichage les info de compte
+    // affichage les info de compte
     step3.innerHTML = `
                 <table>
                         <thead>
@@ -327,7 +327,8 @@ function ajouterINformationEtape2() {
     compte.genre = selectGenre.value
     compte.dateNaissance = dateNaissance.value
     compte.lieuNaissance = lieuNaissance.value
-
+    compte.datecreation = new Date()
+    compte.typeactive = "ComptePrincipal"
 }
 // 3eme etape
 function ajouterINformationEtape3() {
@@ -395,8 +396,8 @@ function genereRIB(sold) {
         codeLocalite: "676",
         cleRIB: "37",
         numeroCompte: numeroCompte,
-        sold:sold,
-        etat:"active"
+        sold: sold,
+        etat: "active"
     }
     return rib;
 }
