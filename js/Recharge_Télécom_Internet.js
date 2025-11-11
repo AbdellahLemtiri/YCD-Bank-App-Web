@@ -26,8 +26,12 @@ btn_acheter_autre_racharge.addEventListener('click', () => {
     container_recharge.classList.remove('d-none');
     imgsucces.classList.add('d-none');
     container_for_recharge.classList.add('d-none');
-    infonum.innerHTML = '';
-    infoalias.innerHTML = '';
+    container_alias.classList.add('d-none');
+      FavorisR.classList.remove('d-none');
+    Favoris = 0;
+    phoneR.value = '';
+    aliasR.value = "";
+
 
 })
 buttonaccuile.addEventListener('click', () => {
@@ -70,7 +74,7 @@ valideR.addEventListener('click', () => {
             erreur = true;
         }
     }
-   
+
 
     if (erreur === false) {
         imgsucces.classList.remove('d-none');
