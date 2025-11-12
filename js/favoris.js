@@ -1,42 +1,50 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const lesfavoris = JSON.parse(localStorage.getItem('listfavoris')) || [];
+    const favoris_cards = document.getElementById('favoris_cards');
+    if (!favoris_cards) return;
+    favoris_cards.innerHTML = '';
+    if (lesfavoris.length === 0) {
+        favoris_cards.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-star fs-1 text-muted mb-3 d-block"></i>
+                <p class="text-muted fs-14">Aucun favori ajouté pour le moment.</p>
+            </div>
+        `;
+        return;
+    }
+    lesfavoris.forEach((item,index) => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-lg-3';
+        col.innerHTML = `
+            <div class="favoris-card p-2 bg-white rounded shadow-sm h-100">
+                <div class="p-3 d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                          ${item.image}
+                            <span class="fw-bold text-orange">${item.typeRecharge || 'Type'}</span>
+                        </div>
+                        <p class="mb-1 fw-semibold">${item.alias}</p>
+                        <p class="mb-0 text-muted small">${item.typeRecharge || ''}</p>
+                    </div>
+                    <!-- Bouton de suppression -->
+                    <button class="btn btn-sm btn-outline-danger ms-2" 
+                            onclick="supprimerFavori(${index})" 
+                            title="Supprimer des favoris">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
 
-let favoris_cards= document.getElementById('favoris_cards');
-let favoris =JSON.parse( localStorage.getItem("listfavoris"))
-console.log(historique);
+        favoris_cards.appendChild(col);
+    });
+});
 
-let card = document.createElement('div');
 
-for (let i = 0; i < historique.length; i++) {
-  
-    const col = document.createElement('div');
-    col.className = 'col fs-12';
+function supprimerFavori(index) {
 
-    col.innerHTML = 
-        '<div class="col fs-12">' +
-            '<div class="card_his card border-1 shadow-sm rounded-3">' +
-                '<div class="card-body p-2 d-flex align-items-center">' +
-                    '<div class="flechbg ' + bg_card + ' bg-opacity-10 rounded-circle p-2 me-3 d-flex align-items-center justify-content-center">' +
-                        '<i class="' + color_flech + ' fs-5"></i>' +
-                    '</div>' +
-                    '<div class="flex-grow-1">' +
-                        '<div class="d-flex justify-content-between align-items-start">' +
-                            '<div>' +
-                                '<h6 class="mb-1 fw-14 ">' + historique[i].motif + '</h6>' +
-                                '<p class="text-muted small mb-0">' +
-                                    date.getFullYear() + '/' +
-                                    String(date.getMonth() + 1).padStart(2, '0') + '/' +
-                                    String(date.getDate()).padStart(2, '0') + ' ' +
-                                    String(date.getHours()).padStart(2, '0') + ':' +
-                                    String(date.getMinutes()).padStart(2, '0') +
-                                '</p>' +
-                            '</div>' +
-                            '<span class="fs-14 fw-semibold ">' + 
-                                historique[i].montant + ' DH' + 
-                            '</span>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>' +
-        '</div>';
-
-    favoris_cards.appendChild(col);
+    let lesfavoris = JSON.parse(localStorage.getItem('listfavoris')) || [];
+    lesfavoris.splice(index, 1);
+    localStorage.setItem('listfavoris', JSON.stringify(lesfavoris));
+    location.reload();
 }
