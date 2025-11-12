@@ -404,7 +404,7 @@ function genereRIB(sold) {
 
 //  sauvgarder dans localstorage
 function creerCompteDansLLocalStorage() {
-    let listComptes = JSON.parse(localStorage.removeItem("compte")) || []
+    let listComptes = JSON.parse(localStorage.getItem("listComptes")) || []
     listComptes.push(compte);
     localStorage.setItem("listComptes", JSON.stringify(listComptes))
 }
