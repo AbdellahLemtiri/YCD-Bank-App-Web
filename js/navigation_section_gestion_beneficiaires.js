@@ -110,7 +110,7 @@ chargeinfodecompte()
 function chargeinfodecompte() {
     let idsalut = document.getElementById('idsalut')
     let sectionInfoCompte = document.getElementById('sectionInfoCompte')
-    sectionInfoCompte.innerHTML=""
+    sectionInfoCompte.innerHTML = ""
     let compte = JSON.parse(localStorage.getItem('compte'))
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
     idsalut.innerText = "Bonjour " + nomcomplet
