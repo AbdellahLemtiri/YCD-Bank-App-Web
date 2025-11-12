@@ -29,10 +29,10 @@ let imgRecharge = ""
 recharges.forEach(recharge => {
     recharge.addEventListener('click', function () {
     nomR = this.querySelector('h6').textContent;
-    imgRecharge = this.querySelector('img')
+    imgRecharge = this.querySelector('img').getAttribute('src')
         container_recharge.classList.add('d-none');
         container_for_recharge.classList.remove('d-none');
-        console.log(imgRecharge);
+   
     })
 });
 let cmptR = 0;
@@ -100,7 +100,7 @@ console.log(nomR);
         alias: aliasR.value,     
         typeRecharge: nomR,              
         num: phoneR.value  ,
-        image : imgRecharge     
+        image : imgRecharge   
         };
     tabfavoris.push(favori);
     localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
