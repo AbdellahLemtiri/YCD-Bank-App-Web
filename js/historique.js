@@ -6,6 +6,13 @@ console.log(historique);
 historique_cards.innerHTML = '';
 for(let i=0;i<historique.length;i++){
     let date = new Date(historique[i].datetransaction);
+ let bg_card;
+ let color_card;
+
+    if (historique[i].montant > 0){
+        bg_card = "bg-danger ";
+        color_card = ""
+    }
  const col = document.createElement('div');
  col.className = 'col fs-12';
  col.innerHTML =    '<div class="col fs-12">'+
