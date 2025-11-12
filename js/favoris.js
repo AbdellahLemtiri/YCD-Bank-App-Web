@@ -1,25 +1,12 @@
 
-let historique_cards= document.getElementById('historique_cards');
-let historique =JSON.parse( localStorage.getItem("listTransaction"))
+let favoris_cards= document.getElementById('favoris_cards');
+let favoris =JSON.parse( localStorage.getItem("listfavoris"))
 console.log(historique);
 
 let card = document.createElement('div');
 
 for (let i = 0; i < historique.length; i++) {
-    let date = new Date(historique[i].datetransaction);
-
-    let bg_card;
-    let color_flech;
-
-
-    if (historique[i].montant < 0) {
-        bg_card = "bg-danger";
-        color_flech = "bi bi-arrow-up-right text-danger";
-    } else {
-        bg_card = "bg-success";
-        color_flech = "bi bi-arrow-down-left text-success";
-    }
-
+  
     const col = document.createElement('div');
     col.className = 'col fs-12';
 
@@ -51,5 +38,5 @@ for (let i = 0; i < historique.length; i++) {
             '</div>' +
         '</div>';
 
-    historique_cards.appendChild(col);
+    favoris_cards.appendChild(col);
 }
