@@ -13,13 +13,26 @@ const infoalias = document.getElementById('infoalias');
 const aliasR = document.getElementById('aliasR');
 const imgsucces = document.getElementById('imgsucces');
 const buttonaccuile = document.getElementById('buttonaccuile');
+// const iam = document.getElementById('iam');
+// const inwi = document.getElementById('iam');
+// const orange = document.getElementById('iam');
+// const miditel = document.getElementById('iam');
+// const afriqia = document.getElementById('iam');
+// const stm = document.getElementById('iam');
+// const yoxo = document.getElementById('iam');
+// console.log(iam);
+// console.log(inwi);
+// console.log(yoxo);
 let btn_acheter_autre_racharge = document.getElementById('btn_acheter_autre_racharge');
 let nomR = "";
+let imgRecharge = ""
 recharges.forEach(recharge => {
     recharge.addEventListener('click', function () {
     nomR = this.querySelector('h6').textContent;
+    imgRecharge = this.querySelector('img')
         container_recharge.classList.add('d-none');
         container_for_recharge.classList.remove('d-none');
+        console.log(imgRecharge);
     })
 });
 let cmptR = 0;
@@ -86,7 +99,8 @@ console.log(nomR);
         idF: idF + 1,                   
         alias: aliasR.value,     
         typeRecharge: nomR,              
-        num: phoneR.value       
+        num: phoneR.value  ,
+        image : imgRecharge     
         };
     tabfavoris.push(favori);
     localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
