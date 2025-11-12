@@ -168,7 +168,7 @@ selectGenre.addEventListener('change', function () {
 createAccountButton.addEventListener('click', function () {
     if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value) {
         ajouterINformationEtape1()
-        console.log(compte)
+
         changeVisibilite(step2, step1)
         document.getElementById("imgStep1").src = "../images/checked.png";
     }
@@ -188,7 +188,7 @@ validateButton.addEventListener('click', function () {
     if (getElementByClassBorderSeccuss.length == 12) {
         // ajouter les information de l'étape 2 au compte
         ajouterINformationEtape2()
-        console.log(compte)
+
         changeVisibilite(step3, step2)
         document.getElementById("imgStep2").src = "../images/checked.png"
         ajouterINformationEtape3();
@@ -328,7 +328,7 @@ function ajouterINformationEtape2() {
     compte.dateNaissance = dateNaissance.value
     compte.lieuNaissance = lieuNaissance.value
     compte.datecreation = new Date()
-    compte.typeActive = "Compte Principal"
+    compte.typeactive = "Compte Principal"
 }
 // 3eme etape
 function ajouterINformationEtape3() {
@@ -404,7 +404,8 @@ function genereRIB(sold) {
 
 //  sauvgarder dans localstorage
 function creerCompteDansLLocalStorage() {
-    localStorage.removeItem("compte");
-    localStorage.setItem("compte", JSON.stringify(compte))
+    let listComptes = JSON.parse(localStorage.getItem("listComptes")) || []
+    listComptes.push(compte);
+    localStorage.setItem("listComptes", JSON.stringify(listComptes))
 }
 
