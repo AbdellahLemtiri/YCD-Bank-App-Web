@@ -42,8 +42,8 @@ for (let i = 0; i < historique.length; i++) {
                                     String(date.getMinutes()).padStart(2, '0') +
                                 '</p>' +
                             '</div>' +
-                            '<span class="fs-14">' + 
-                                Math.abs(historique[i].montant) + ' DH' + 
+                            '<span class="fs-14 fw-semibold ">' + 
+                                historique[i].montant + ' DH' + 
                             '</span>' +
                         '</div>' +
                     '</div>' +
