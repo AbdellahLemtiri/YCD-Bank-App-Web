@@ -97,3 +97,17 @@
 .ls-none{
     list-style: none;
 }
+.card-box {
+ background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 200px;        
+  height: 110px;        
+ cursor: pointer;
+}
+.card-box:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}

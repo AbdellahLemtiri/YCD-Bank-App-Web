@@ -1,5 +1,5 @@
-if (localStorage.getItem("login") != "seccuss")
-    window.location.href = "login.html";
+// if (localStorage.getItem("login") != "seccuss")
+//     window.location.href = "login.html";
 
 let idsalut = document.getElementById('idsalut')
 let sectionInfoCompte = document.getElementById('sectionInfoCompte')
@@ -35,9 +35,6 @@ noeye.addEventListener('click', function () {
     nonaffichier_solde.classList.remove('d-none');
     affichier_solde.classList.add('d-none');
 });
-
-
-
 
 
 
