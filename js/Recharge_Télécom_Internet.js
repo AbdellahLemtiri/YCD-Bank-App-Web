@@ -13,28 +13,22 @@ const infoalias = document.getElementById('infoalias');
 const aliasR = document.getElementById('aliasR');
 const imgsucces = document.getElementById('imgsucces');
 const buttonaccuile = document.getElementById('buttonaccuile');
-// const iam = document.getElementById('iam');
-// const inwi = document.getElementById('iam');
-// const orange = document.getElementById('iam');
-// const miditel = document.getElementById('iam');
-// const afriqia = document.getElementById('iam');
-// const stm = document.getElementById('iam');
-// const yoxo = document.getElementById('iam');
-// console.log(iam);
-// console.log(inwi);
-// console.log(yoxo);
+
+
+
 let btn_acheter_autre_racharge = document.getElementById('btn_acheter_autre_racharge');
 let nomR = "";
 let imgRecharge = ""
 recharges.forEach(recharge => {
     recharge.addEventListener('click', function () {
-    nomR = this.querySelector('h6').textContent;
-    imgRecharge = this.querySelector('img').getAttribute('src')
+        nomR = this.querySelector('h6').textContent;
+        imgRecharge = this.querySelector('img').getAttribute('src')
         container_recharge.classList.add('d-none');
         container_for_recharge.classList.remove('d-none');
-   
+
     })
 });
+
 let cmptR = 0;
 let Favoris = 0;
 btn_acheter_autre_racharge.addEventListener('click', () => {
@@ -48,6 +42,7 @@ btn_acheter_autre_racharge.addEventListener('click', () => {
     aliasR.value = "";
 
 })
+
 buttonaccuile.addEventListener('click', () => {
     Window.location.href = 'future/dashboard_1.html'
 });
@@ -64,7 +59,7 @@ valideR.addEventListener('click', () => {
     infoalias.innerHTML = '';
     imgsucces.classList.add('d-none');
 
-console.log(nomR);
+    console.log(nomR);
 
     let erreur = false;
     if (phoneR.value.length !== 10) {
@@ -90,26 +85,43 @@ console.log(nomR);
         }
 
     }
-    
+
     if (erreur === false) {
         if (Favoris === 1) {
-    let idF = parseInt(localStorage.getItem("idF")) || 0;
-    let tabfavoris = JSON.parse(localStorage.getItem("listfavoris")) || [];
-    let favori = {
-        idF: idF + 1,                   
-        alias: aliasR.value,     
-        typeRecharge: nomR,              
-        num: phoneR.value  ,
-        image : imgRecharge   
-        };
-    tabfavoris.push(favori);
-    localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
-    localStorage.setItem("idF", idF + 1); 
-}
+            let idF = parseInt(localStorage.getItem("idF")) || 0;
+            let tabfavoris = JSON.parse(localStorage.getItem("listfavoris")) || [];
+
+            let favori = {
+                idF: idF + 1,
+                alias: aliasR.value,
+                typeRecharge: nomR,
+                num: phoneR.value,
+                image: imgRecharge
+            };
+
+
+            const doublons = tabfavoris.filter(fav =>
+                fav.num === favori.num || fav.alias.toLowerCase() === favori.alias.toLowerCase()
+            );
+
+            if (doublons.length > 0) {
+              infoalias.innerHTML = "Ce favori existe déjà !";
+                return;
+            }
+
+            
+
+
+            tabfavoris.push(favori);
+            localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
+            localStorage.setItem("idF", idF + 1);
+        }
+
         imgsucces.classList.remove('d-none');
     }
-    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [] ;
-    let idTransaction = localStorage.getItem("idTransaction") || 1 ;
+
+    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [];
+    let idTransaction = localStorage.getItem("idTransaction") || 1;
     let transaction = {
         idTransaction: idTransaction,
         motif: nomR,
