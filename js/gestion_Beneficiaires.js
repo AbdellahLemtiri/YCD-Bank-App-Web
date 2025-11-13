@@ -74,7 +74,7 @@ function activerDesctever(id, etat) {
                 benef.etat = etat;
             }
         });
-        console.log(",,,,,,,,,,,,,,,")
+        
         localStorage.setItem('tabBeneficaires', JSON.stringify(listebenef))
         updatecart(listebenef)
     }
