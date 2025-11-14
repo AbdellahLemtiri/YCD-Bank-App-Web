@@ -13,9 +13,16 @@ const infoalias = document.getElementById('infoalias');
 const aliasR = document.getElementById('aliasR');
 const imgsucces = document.getElementById('imgsucces');
 const buttonaccuile = document.getElementById('buttonaccuile');
+const favorisnav = document.getElementById('favoris');
+const rechargesnav = document.getElementById('rechargesnav');
+const formulairefav = document.getElementById('formulairefav');
 
-
-
+let btnclose = document.getElementById('btnclose');
+btnclose.addEventListener('click', () => {
+    formulairefacture.classList.add('d-none');
+    contrat.value = "";
+    montantfacture.value = "";
+})
 let btn_acheter_autre_racharge = document.getElementById('btn_acheter_autre_racharge');
 let nomR = "";
 let imgRecharge = ""
@@ -44,7 +51,7 @@ btn_acheter_autre_racharge.addEventListener('click', () => {
 })
 
 buttonaccuile.addEventListener('click', () => {
-    Window.location.href = 'future/dashboard_1.html'
+    Window.location.href = "dashboard.html"
 });
 
 
@@ -54,12 +61,25 @@ FavorisR.addEventListener('click', () => {
     Favoris = 1;
 });
 
+
+
+
 valideR.addEventListener('click', () => {
+
+    let compte = JSON.parse(localStorage.getItem('compte')) || {};
+    let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
+    if (compte.typeactive != "Compte Principal") {
+        alert("Veuillez changer votre compte au compte Principal");
+        return;
+    }
+    if (compte.ribComptePrincipal.etat != "active") {
+        alert(" Veuillez activer votre compte.");
+        return;
+    }
+
     infonum.innerHTML = '';
     infoalias.innerHTML = '';
     imgsucces.classList.add('d-none');
-
-    console.log(nomR);
 
     let erreur = false;
     if (phoneR.value.length !== 10) {
@@ -67,11 +87,16 @@ valideR.addEventListener('click', () => {
         erreur = true;
     }
 
-    //  important
-    // if(montantR > solde){
-    //     erreur = true;
-    //     infomontant.innerHTML = "Votre solde est insuffisant !";
-    // }
+    let montantConsumerparmois = 0;
+    listTransaction.forEach(element => {
+        montantConsumerparmois += Number(element.montant);
+    });
+    let montantSaisi = Number(montantR.value);
+    if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
+        alert('Vous avez dépassé le plafond mensuel autorisé.');
+        return;
+    }
+
 
     if (Favoris === 1) {
         if (aliasR.value.length < 2) {
@@ -88,6 +113,7 @@ valideR.addEventListener('click', () => {
 
     if (erreur === false) {
         if (Favoris === 1) {
+
             let idF = parseInt(localStorage.getItem("idF")) || 0;
             let tabfavoris = JSON.parse(localStorage.getItem("listfavoris")) || [];
 
@@ -105,12 +131,9 @@ valideR.addEventListener('click', () => {
             );
 
             if (doublons.length > 0) {
-              infoalias.innerHTML = "Ce favori existe déjà !";
+                infoalias.innerHTML = "Ce favori existe déjà !";
                 return;
             }
-
-            
-
 
             tabfavoris.push(favori);
             localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
@@ -128,8 +151,75 @@ valideR.addEventListener('click', () => {
         montant: montantR.value,
         datetransaction: new Date()
     }
+    compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) + Number(montantR.value);
     tabhistorique.push(transaction);
     localStorage.setItem("listTransaction", JSON.stringify(tabhistorique))
     localStorage.setItem("idTransaction", ++idTransaction)
+    localStorage.setItem("compte", JSON.stringify(compte))
+    chargeinfodecompte()
+
+
 });
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const lesfavoris = JSON.parse(localStorage.getItem('listfavoris')) || [];
+    const favoris_cards = document.getElementById('favoris_cards');
+    if (!favoris_cards) return;
+    favoris_cards.innerHTML = '';
+    if (lesfavoris.length === 0) {
+        favoris_cards.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-star fs-1 text-muted mb-3 d-block"></i>
+                <p class="text-muted fs-14">Aucun favori ajouté pour le moment.</p>
+            </div>
+        `;
+        return;
+    }
+
+    document.getElementById('favoris_cards').addEventListener('click', function (e) {
+        if (e.target.closest('button')) return;
+        const card = e.target.closest('.favoris-card');
+        if (card) {
+         formulairefav.classList.remove('d-none');
+        }
+    });
+
+    lesfavoris.forEach((item, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-lg-3';
+        col.innerHTML = `
+            <div class="border-1  favoris-card p-1 bg-white rounded-5 shadow-sm ">
+                <div class="p-3 d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                    <img class="w-25" src="${item.image}" alt="">      
+                        </div>
+                        <p class="mb-1 fw-semibold">${item.alias}</p>
+                        <p class="m-0 text-muted small">${item.num || ''}</p>
+                    </div>
+                    
+                    <button class="btn rounded-4 btn-sm btn-outline-danger ms-2" 
+                            onclick="supprimerFavori(${index})" 
+                            title="Supprimer des favoris">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        favoris_cards.appendChild(col);
+    });
+});
+
+
+
+function supprimerFavori(index) {
+
+    let lesfavoris = JSON.parse(localStorage.getItem('listfavoris')) || [];
+    lesfavoris.splice(index, 1);
+    localStorage.setItem('listfavoris', JSON.stringify(lesfavoris));
+    location.reload();
+}

@@ -124,7 +124,9 @@
   color: #f7931e;
 }
 
-
+.favoris-card{
+    cursor: pointer;
+}
     .btn-orange {
      background-color: var(--button-background-orange);
       color: white;
