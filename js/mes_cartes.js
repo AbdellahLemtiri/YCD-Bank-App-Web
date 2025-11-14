@@ -10,9 +10,8 @@ function chargeinfodecompte(etat) {
     let compte = JSON.parse(localStorage.getItem('compte'))
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
     idsalut.innerText = "Bonjour " + nomcomplet
-
-
-
+    document.getElementById('plafond_quotidien').value = compte.plafondQuotidien
+    document.getElementById('plafond_operation').value = compte.plafondOperation
     let div = document.createElement('div')
     div.setAttribute('class', 'd-flex justify-content-between align-items-center  pb-1')
     div.innerHTML = ` <div class=" ">
@@ -79,22 +78,20 @@ document.getElementById('bloquedebloque').addEventListener('click', function () 
 let interfacedegestiondescarte = document.getElementById('interfacedegestiondescarte')
 interfacedegestiondescarte.addEventListener('click', (e) => {
     let elementclik = e.target
-    console.log(elementclik)
-    let idcard = elementclik.closest('div.border-1').getAttribute('id');  // gei id from card 
-
     if (elementclik.tagName === "IMG") {
-        let ner = elementclik.closest('div.border-1').querySelector('ul').classList.toggle('d-none');
-        console.log(ner)
+        elementclik.closest('div.border-1').querySelector('div.ls-none').classList.toggle('d-none');
     }
-
-
 })
 
 
 
-
-
-
-
-
-
+document.getElementById('plafond_quotidien').addEventListener('keyup', function () {
+    let compte = JSON.parse(localStorage.getItem('compte'))
+    compte.plafondQuotidien = document.getElementById('plafond_quotidien').value
+    localStorage.setItem('compte', JSON.stringify(compte))
+})
+document.getElementById('plafond_operation').addEventListener('keyup', function () {
+    let compte = JSON.parse(localStorage.getItem('compte'))
+    compte.plafondOperation = document.getElementById('plafond_operation').value
+    localStorage.setItem('compte', JSON.stringify(compte))
+})
