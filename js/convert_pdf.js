@@ -11,7 +11,7 @@ function chargeinfodecompte(etat) {
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
     idsalut.innerText = "Bonjour " + nomcomplet
     let RIB = compte.ribComptePrincipal
-    if (compte.typeActive != "Compte Principal")
+    if (compte.typeactive != "Compte Principal")
         RIB = compte.ribCompteEparne
 
     let div = document.createElement('div')
@@ -111,7 +111,7 @@ function afficheRIB() {
                             Type de Compte
                         </td> 
                         <td colspan="3">
-                             ${compte.typeActive}
+                             ${compte.typeactive}
                         </td>
                     </tr>
                     <tr>
