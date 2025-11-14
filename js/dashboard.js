@@ -1,5 +1,5 @@
-// if (localStorage.getItem("login") != "seccuss")
-//     window.location.href = "login.html";
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
 
 let idsalut = document.getElementById('idsalut')
 let sectionInfoCompte = document.getElementById('sectionInfoCompte')
@@ -39,19 +39,22 @@ noeye.addEventListener('click', function () {
 
 
 
+
+
+
 //========== pour change le compte  
 let pointsaction = document.getElementById('pointsaction');
 let compte1 = document.getElementById('compte1');
 pointsaction.addEventListener('click', function () {
     let compte = JSON.parse(localStorage.getItem('compte'))
     if (compte.typeactive == "Compte Principal") {
-        if (confirm("voullez chnage to compte eparnN3")) {
+        if (confirm("Voulez-vous passer au Compte Épargne ?")) {
             compte.typeactive = "Compte Eparne"
             localStorage.setItem("compte", JSON.stringify(compte))
             pointsaction.classList.toggle('flex-row-reverse')
         }
     } else {
-        if (confirm("voullez chnage to compte eparnN ")) {
+        if (confirm("Voulez-vous passer au Compte Principal ? ")) {
             compte.typeactive = "Compte Principal"
             localStorage.setItem("compte", JSON.stringify(compte))
             pointsaction.classList.toggle('flex-row-reverse')
