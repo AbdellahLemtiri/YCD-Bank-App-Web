@@ -117,6 +117,49 @@
  cursor: pointer;
 }
 
+.container_recharge .card-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.container_recharge .card-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.container_recharge .card-text {
+  text-align: right;
+}
+
+.text-orange {
+  color: #f7931e;
+}
+
+.favoris-card{
+    cursor: pointer;
+}
+    .btn-orange {
+     background-color: var(--button-background-orange);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 4px 4px;
+      font-family: var(--font-family);
+      color: var(--text-color-light);
+    }
+    
+    .btn-orange-outline {
+       font-family: var(--font-family);
+      color: var(--text-color-light);
+      background-color: var(--button-background-orange);
+      border-radius: 12px;
+      padding: 3px 3px;
+     
+    }
+ 
+
     .form-label {
       font-size: 0.9rem;
       color: #555;
