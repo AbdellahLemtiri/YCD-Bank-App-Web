@@ -1,5 +1,5 @@
-if (localStorage.getItem("login") == "seccuss")
-    window.location.href = "dashboard.html";
+// if (localStorage.getItem("login") == "seccuss")
+//     window.location.href = "dashboard.html";
 
 
 // signup.js
@@ -163,12 +163,12 @@ selectGenre.addEventListener('change', function () {
 // event listener pour le bouton createAccountButtonpremier étape 1
 // valider les informations de l'étape 1
 
- 
+
 //
 createAccountButton.addEventListener('click', function () {
-    if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value ) {
+    if (operatorSelect.value != "" && emailInput.value == confirmEmailInput.value && passwordInput.value == confirmPasswordInput.value) {
         ajouterINformationEtape1()
-        console.log(compte)
+
         changeVisibilite(step2, step1)
         document.getElementById("imgStep1").src = "../images/checked.png";
     }
@@ -181,14 +181,14 @@ createAccountButton.addEventListener('click', function () {
 });
 
 // event listner pour button valide les informations de stpe 2
- // valider les informations de l'étape 2
+// valider les informations de l'étape 2
 
 validateButton.addEventListener('click', function () {
     let getElementByClassBorderSeccuss = document.getElementsByClassName("message-success-border")
     if (getElementByClassBorderSeccuss.length == 12) {
-            // ajouter les information de l'étape 2 au compte
+        // ajouter les information de l'étape 2 au compte
         ajouterINformationEtape2()
-        console.log(compte)
+
         changeVisibilite(step3, step2)
         document.getElementById("imgStep2").src = "../images/checked.png"
         ajouterINformationEtape3();
@@ -207,7 +207,7 @@ function finalizeButton() {
     compte.ribComptePrincipal = genereRIB(10000)
     compte.ribCompteEparne = genereRIB(0)
     creerCompteDansLLocalStorage()
-// affichage les info de compte
+    // affichage les info de compte
     step3.innerHTML = `
                 <table>
                         <thead>
@@ -321,13 +321,19 @@ function ajouterINformationEtape1() {
 // pour la deuxieme etape
 
 function ajouterINformationEtape2() {
+    let idcompte = localStorage.getItem('compte') || 0;
+    compte.idcompte = idcompte
     compte.prenom = inputFirstName.value
     compte.nom = inputLastName.value
     compte.numeroCarteNationale = numeroCarteNationale.value
     compte.genre = selectGenre.value
     compte.dateNaissance = dateNaissance.value
     compte.lieuNaissance = lieuNaissance.value
-
+    compte.plafondOperation = 10000
+    compte.plafondQuotidien = 1000
+    compte.datecreation = new Date()
+    compte.typeactive = "Compte Principal"
+    localStorage.setItem('idcompte', ++idcompte)
 }
 // 3eme etape
 function ajouterINformationEtape3() {
@@ -395,15 +401,16 @@ function genereRIB(sold) {
         codeLocalite: "676",
         cleRIB: "37",
         numeroCompte: numeroCompte,
-        sold:sold,
-        etat:"active"
+        sold: sold,
+        etat: "active"
     }
     return rib;
 }
 
 //  sauvgarder dans localstorage
 function creerCompteDansLLocalStorage() {
-    localStorage.removeItem("compte");
-    localStorage.setItem("compte", JSON.stringify(compte))
+    let listComptes = JSON.parse(localStorage.getItem("listComptes")) || []
+    listComptes.push(compte);
+    localStorage.setItem("listComptes", JSON.stringify(listComptes))
 }
 
