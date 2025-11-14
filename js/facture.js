@@ -1,69 +1,89 @@
-const factures = document.querySelectorAll('.facture');
+const factures = document.querySelectorAll('.facture')
 const formulairefacture = document.getElementById('formulairefacture');
 const montantfacture = document.getElementById("montantfacture");
 const infomontantfacture = document.getElementById('infomontantfacture');
-const contrat = document.getElementById("contrat");
+const contrat = document.getElementById("contrat")
 const infocontra = document.getElementById('infocontra');
-const validef = document.getElementById('validef');
+const validef = document.getElementById('validef')
 let btnclose = document.getElementById('btnclose');
 btnclose.addEventListener('click', () => {
   formulairefacture.classList.add('d-none');
-  contrat.value = "";
-  montantfacture.value = "";
-})
+  contrat.value = ""
+  montantfacture.value = ""
+});
 
 factures.forEach(facture => {
   facture.addEventListener('click', function () {
-
-    const nomF = this.querySelector('p').textContent.trim();
     formulairefacture.classList.remove('d-none');
+
   });
 });
 
-
-validef.addEventListener('click', () => {
-
+validef.addEventListener('click', (e) => {
+  e.preventDefault();
   let erreur = false;
+  
+  let compte = JSON.parse(localStorage.getItem('compte'))
+  let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
   const numContrat = contrat.value.trim();
-  const montant = montantfacture.value.trim();
+  const montant = parseFloat(montantfacture.value) || 0;
+
+  infocontra.textContent = "";
+  infomontantfacture.textContent = "";
+
+  if (compte.typeactive !== "Compte Principal") {
+    alert("Veuillez changer votre compte au compte Principal")
+    erreur = true;
+  }
+
+  if (compte.ribComptePrincipal.etat !== "active") {
+    alert("Veuillez activer votre compte !!")
+    erreur = true;
+  }
+
+  if (Number(compte.ribComptePrincipal.sold) < montant) {
+    alert('Solde insuffisant.');
+    erreur = true;
+  }
 
   if (numContrat === "" || numContrat.length < 6) {
-    infocontra.textContent = "Veuillez entrer un numéro de contrat valide !";
+    infocontra.textContent = "Numéro de contrat invalide !!"
     infocontra.classList.add('text-orange');
     erreur = true;
   }
 
   if (montant < 50 || montant <= 0) {
-    infomontantfacture.textContent = "Veuillez entrer un montant valide";
+    infomontantfacture.textContent = "Montant minimum: 50 DH";
     infomontantfacture.classList.add('text-orange');
     erreur = true;
   }
-  if (erreur === false) {
 
+  if (!erreur) {
+    compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) - Number(montant);
     
-    if (compte.ribComptePrincipal) {
-        compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) - Number(montant);
-    }
-    alert(`Paiement de ${montant} DH pour le contrat ${numContrat} validé !`);
-    formulairefacture.classList.add('d-none');
-    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [];
-    let idTransaction = JSON.parse(localStorage.getItem("idTransaction")) || 1;
+    let idTransaction = parseInt(localStorage.getItem("idTransaction")) || 1;
+    
     let transaction = {
       idTransaction: idTransaction,
-      motif: "Facure Eua electicite",
-      montant: -montantfacture.value,
+      motif: "Facture Eau électricité - " + numContrat,
+      montant: -montant,
       datetransaction: new Date()
+    };
+
+    listTransaction.push(transaction);
+    
+    localStorage.setItem("listTransaction", JSON.stringify(listTransaction));
+    localStorage.setItem("idTransaction", idTransaction + 1);
+    localStorage.setItem("compte", JSON.stringify(compte));
+
+    alert(`Paiement de ${montant} DH réussi !`)
+
+    if (typeof chargeinfodecompte === 'function') {
+      chargeinfodecompte();
     }
-    tabhistorique.push(transaction);
-    localStorage.setItem("listTransaction", JSON.stringify(tabhistorique))
-    localStorage.setItem("idTransaction", ++idTransaction)
+
+    formulairefacture.classList.add('d-none')
+    contrat.value = "";
+    montantfacture.value = "";
   }
-  contrat.value = "";
-  montantfacture.value = "";
 });
-
-
-
-
-
-

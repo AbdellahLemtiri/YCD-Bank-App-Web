@@ -85,6 +85,11 @@
    
     border-bottom: 1px solid var( --button-background-orange);
 }
+.border-orange{
+    margin-top: 4px;
+     border : 1px solid var( --button-background-orange);
+     width: 150px;
+}
 .border-white-left{
     border-left: 1px solid var( --background-color-white);
 }
