@@ -1,5 +1,5 @@
-// if (localStorage.getItem("login") == "seccuss")
-//     window.location.href = "dashboard.html";
+  if (localStorage.getItem("login") == "seccuss")
+     window.location.href = "dashboard.html";
 
 
 // signup.js
