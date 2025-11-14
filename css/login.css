@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800;900&display=swap);
+
+
+:root {
+    --primary-color: #131313;
+    --secondary-color: #FFC247;
+    --text-color: #333333;
+    --text-color-light: white;
+    --text-color-success: #34C759;
+    --background-color-light: #EDEDF1;
+    --background-color-dark: #D9D9D9;
+    --background-color-white: #ffffff;
+    --background-color-blue: #4335DE;
+    --button-background-orange: #FF8D28;
+    --button-background-orange-disabled: #ff8c2882;
+    --border-color-orange: 1px solid #FFC247;
+    --border-color-grey: 1px solid #CCCCCC;
+    --font-family: 'Inter', sans-serif;
+    --border-color-error: 1px solid red;
+    --border-color-success: 1px solid #34C759;
+    --border-radius: 16px;
+}
+
+.background-blue {
+    background-color: var(--background-color-blue);
+}
+
+.border-1 {
+    border: var(--border-color-grey);
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.border-top-right-radius-200 {
+    border-top-right-radius: 200px;
+
+    @media screen {
+        @media (max-width: 768px) {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 200px;
+        }
+    }
+}
+
+
+.background-light {
+    background-color: var(--background-color-light);
+}
+
+.button-background-orange {
+    background-color: var(--button-background-orange);
+    color: var(--text-color-light);
+}
+
+
+.message-error-border {
+ border: var(--border-color-error);
+}
+
+.message-success-border {
+ border: var(--border-color-success);
+}
+
+.message-success-border {
+ border: var(--border-color-success);
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.fs-12 {    
+    font-size: 12px;
+}
+.text-orange{
+    color: var(--secondary-color);
+}
+.border-orange-bottom{
+   
+    border-bottom: 1px solid var( --button-background-orange);
+}
+.border-white-left{
+    border-left: 1px solid var( --background-color-white);
+}
+
+.bg-orange{
+    background-color: var(--button-background-orange);
+}
+
+.bg-grey{
+    background-color: var(--background-color-dark);
+}
+.bg-opacity-0{
+    background-color: transparent;
+}
+
+.ls-none{
+    list-style: none;
+}
