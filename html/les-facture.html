@@ -8,185 +8,202 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="../css/les-facture.css">
+   <link rel="stylesheet" href="../css/facture.css">
 </head>
 
 <body class="row " style="width: 100%;">
-   <header
-        class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2  pt-2 row   d-flex align-items-start  justify-content-start  flex-lg-column  "
-        style="z-index: 1000;"  id="header" >
-        <div class=" col-3 col-lg-12 d-flex justify-content-center align-items-center p-lg-4 ">
-            <img src="../images/logo.png" alt="Logo" width="40">
-        </div>
-        <nav class="  col-7 col-lg-12 fs-12 ">
-            <div class="d-none d-lg-block " id="navlist">
-                <div class="nav d-flex flex-column align-items-center">
-                    <div class="nav-item">
-                        <a href="dashboard.html" class="d-flex  gap-2 p-3 text-decoration-none text-dark">
-                            <img src="../images/icons8-accueil-48.png" alt="Dashboard Icon" width="20">
-                            <span>Dashboard</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="gestion_eneficiaires.html"
-                            class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
-                            <img src="../images/icons8-données-dans-les-deux-directions-100.png" alt=" versement Icon"
-                                width="20">
-                            <span>verement</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="rapports.html"
-                            class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
-                            <img src="../images/icons8-carte-bancaire-face-arrière-48.png" alt="cartes Icon" width="20">
-                            <span>Mes cartes</span>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="d-flex  flex-column  gap-3 border-top pt-3 justify-content-end align-items-center d- none d-lg-flex">
-                    <a href="" class="d-flex align-items-center gap-2   text-decoration-none text-dark">
-                        <div> <i class="bi bi-gear" id=""></i> <span>Paramètres</span></div>
-                    </a>
-
-                    <a href="" class="d-flex align-items-center gap-2   text-decoration-none text-dark">
-                        <div> <i class="bi bi-box-arrow-right " id=""></i> <span>Déconnexion</span></div>
-                    </a>
-                </div>
+    <header
+      class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2  pt-2 row   d-flex align-items-start  justify-content-start  flex-lg-column  "
+      style="z-index: 1000;" id="header">
+      <div class=" col-3 col-lg-12 d-flex justify-content-center align-items-center p-lg-4 ">
+         <img src="../images/logo.png" alt="Logo" width="40">
+      </div>
+      <nav class="  col-7 col-lg-12 fs-12 ">
+         <div class="d-none d-lg-block " id="navlist">
+            <div class="nav d-flex flex-column align-items-center align-items-lg-start">
+               <div class="nav-item">
+                  <a href="dashboard.html" class="d-flex  gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-accueil-48.png" alt="Dashboard Icon" width="20">
+                     <span>Dashboard</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="gestion_eneficiaires.html"
+                     class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-données-dans-les-deux-directions-100.png" alt=" versement Icon"
+                        width="20">
+                     <span>verement</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="mes_cartes.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-carte-bancaire-face-arrière-48.png" alt="cartes Icon" width="20">
+                     <span>Mes cartes</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="convert_pdf.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/rib.png" alt="cartes Icon" width="20">
+                     <span>Mon RIB</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="recharge.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/recharge.png" alt="cartes Icon" width="20">
+                     <span>recharge</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="facture.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/facture.png" alt="cartes Icon" width="20">
+                     <span>Facture</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="simulation.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/simulation.png" alt="cartes Icon" width="20">
+                     <span>simulation</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="devise.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/changedevise.png" alt="cartes Icon" width="20">
+                     <span>Devise</span>
+                  </a>
+               </div>
             </div>
-        </nav>
-        <div class="col-2 col-lg-12   d-lg-none  d-flex justify-content-end align-items-start">
-            <button type="button" id="navbar-button" class=" bg-opacity -0 border -0" aria-label="nav bar ">
-              al
-            </button>
-            
-        </div>
+            <div class="d-flex  flex-column  gap-3 border-top pt-3 justify-content-end align-items-center  d-lg-flex">
 
-    </header>
+               <div role="button" id="DeconnexionButton"> <i class="bi bi-box-arrow-right " id=""></i>
+                  <span>Déconnexion</span>
+               </div>
 
-    <main class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10  p-4 p-lg-3">
+            </div>
+         </div>
+      </nav>
+      <div class="col-2 col-lg-12   d-lg-none  d-flex justify-content-end align-items-start">
+         <button type="button" id="navbar-button" class=" bg-opacity-0 border-0" aria-label="nav bar ">
+            <img src="../images/navbar.png" width="33" alt="nav bar image">
+         </button>
 
-        <!-- section de qui affiche le message de bienvenue et icon de mode nuit et notification -->
-        <div class=" d-flex justify-content-between align-items-center border-orange-bottom pb-2 ">
-            <div class="fs-16 p-1">bonjour lakroune ismail</div>
-            <div><i class="bi bi-person-circle" id=""></i>
-                <i class="bi bi-sun" id=""></i>
-                <!-- <i class="bi bi-moon" id=""></i> -->
-                <i class="bi bi-bell" id=""></i>
+      </div>
+
+   </header>
+
+   <main class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10  p-4 p-lg-3">
+
+    <div class=" d-flex justify-content-between align-items-center border-orange-bottom p-1 pt-3 ">
+            <div class="fs-16 p-1" id="idsalut"> </div>
+            <div>
+                
             </div>
         </div>
 
+        <section id="sectionInfoCompte" class="border-orange-bottom"> </section>
 
-        <div class=" d-flex justify-content-between align-items-center  pb-1 ">
-            <div class=" ">
-                <div class="fs-12 fw-bold  text-orange">
-                    compte de debiter
-                </div>
-                <div class="fs-12">
-                    Mr .ismail lakroune
-                </div>
-                <div class="fs-12">
-                    1234567890987654323456
-                </div>
-            </div>
-            <div class="align-self-end fs-12 fw-bold">123455MAD</div>
-        </div>
 
+
+
+ 
 
       <!-- les facture  -->
 
-      <section class="les_facture " id="">
+      <section class="les_facture " id="container_facture">
          <div class="flech  p-2  ">
             Eau et Electricite
          </div>
-         <div class="row gap-2 flex-wrap bg-grey justify-content-center p-3 ">
-            <div class="card-box align-items-center justify-content-space-between col-12 col-md-8 ">
+         <div class=" facture row gap-2 flex-wrap   justify-content-center p-3 ">
+            <div class="card-box border-1 align-items-center justify-content-space-between col-12 col-md-8 ">
                <img src="../images/21.png" alt="SRM leua el Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">Tanger</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between">
                <img src="../images/22.png" alt="ATM leua et Electricite">
                <div class="card-text fs-12">
 
                   <p class="mb-0">Fes - Meknes</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between">
                <img src="../images/23.png" alt="Eau Electricite">
                <div class="card-text fs-12">
 
                   <p class="mb-0">Rabat - Sale - Kenitra</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between">
                <img src="../images/24.png" alt="Eau et Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">Safi - Marrakech</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between ">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between ">
                <img src="../images/25.png" alt="eua et Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">tetouan</p>
                </div>
             </div>
-            <div class="card-box  align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box  align-items-center justify-content-space-between">
                <img src="../images/25.png" alt="eua Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">Laayoune - sakia elhamra</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between">
                <img class="" src="../images/26.png" alt="eua et Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">Rabat</p>
                </div>
             </div>
-            <div class="card-box align-items-center justify-content-space-between">
+            <div class=" facture  border-1 card-box align-items-center justify-content-space-between">
                <img src="../images/23.png" alt="eua et Electricite">
                <div class="card-text fs-12">
                   <p class="mb-0">Kenitra</p>
                </div>
             </div>
+          
+
+            </div>
+         </div>
+         <div id="formulairefacture"
+            class="  p-4 shadow  position-fixed top-50 d-block start-50 translate-middle bg-light border border-success rounded-4 d-none  shadow   "
+            style="width: 300px;">
+
+            <form class="fs-12">
+               <button id="btnclose" type="button" class="btn-close justify-content-end" data-bs-dismiss="toast"
+                  aria-label="Close"></button>
+               <div class="mb-3 d-flex justify-content-center flex-column  align-items-center">
+                  <label for="montant" class="form-label">Numéro de contrat</label>
+                  <input type="text" id="contrat" class="form-control fs-12" required placeholder=" numéro de contrat">
+                  <div id="infocontra">
+
+                  </div>
+               </div>
+               <div class="d-flex mb-4 justify-content-center flex-column  align-items-center">
+                  <label for="montant" class="form-label">Montant </label>
+                  <input type="number" id="montantfacture" class="form-control">
+
+                  <div id="infomontantfacture"></div>
+
+               </div>
+               <button id="validef" class="btn fs-12 btn- button-background-orange w-100">Valider</button>
+            </form>
+
          </div>
       </section>
+      <div class=" d-flex justify-content-center gap-5 m-4 ">
 
-
-      <!-- secrtin de paiment recharge -->
-      <section class="bg-grey p-5">
-
-         <div class="row flex-coumn justify-content-center gap-3">
-
-            <div class="col-md-5">
-               <!-- <label for="contrat2" class="form-label fw-bold"></label> -->
-               <div class="  gap-3">
-
-
-                  <div class="mb-2 d-flex justify-content-center">N° decontrat</div> <input type="number"
-                     class="form-control" id="contrat2">
-               </div>
-            </div>
-            <div class="col-md-5 ">
-               <!-- <label for="montant2" class="form-label"></label> -->
-               <div class="">
-                  <div class="mb-2  d-flex justify-content-center">Montant</div>
-                  <input type="number" class="form-control" id="montant2">
-               </div>
-            </div>
-           
-         </div>
-         <div class=" d-flex justify-content-center gap-5 m-4 ">
-
-         </div>
+      </div>
 
 
       </section>
 
    </main>
 
-   <script src="../js/Recharge_Télécom_Internet.js"></script>
+   <script src="../js/facture.js"></script>
+   <script src="../js/navbar.js"></script>
 </body>
 
 </html>
