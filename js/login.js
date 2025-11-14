@@ -58,23 +58,30 @@ function countSuccess() {
 }
 
 submitButton.addEventListener('click', function () {
-    let compte = JSON.parse(localStorage.getItem("compte"))
-    if (!compte) {
+    let listComptes = JSON.parse(localStorage.getItem("listComptes"))
+    if (!listComptes) {
         messageTextError.innerText = "aucun compte trouvé, veuillez vous inscrire d'abord"
         return;
     }
-    let identifiant = ""
-    for (let i = 0; i < 6; i++)
-        identifiant += compte.ribComptePrincipal.numeroCompte[i]
 
-    if (identifiant == emailInput.value && compte.password === passwordInput.value) {
-        localStorage.setItem("login", "seccuss")
+
+    const identifiantSaisi = emailInput.value;
+    const motDePasseSaisi = passwordInput.value;
+
+    const compteTrouve = listComptes.find(compte => {
+        let identifiantCompte = compte.ribComptePrincipal.numeroCompte.substring(0, 6);
+        return identifiantCompte == identifiantSaisi && compte.password == motDePasseSaisi;
+    });
+
+    if (compteTrouve) { //!= null
+        localStorage.setItem("compte", JSON.stringify(compteTrouve)); // IMPORTANT: stocker l'objet du compte
+        localStorage.setItem("login", "seccuss");
         window.location.href = "dashboard.html";
     }
     else {
-        messageTextError.innerText = "identifiant de compte ou mot de passe incorrect .identifiant doit être les 6 premiers chiffres du numéro de compte"
+        messageTextError.innerText = "Identifiant de compte ou mot de passe incorrect. L'identifiant doit être les 6 premiers chiffres du numéro de compte.";
     }
-})
+});
 
 function change_border_to_error(inputElement) {
     inputElement.classList.add("message-error-border");
