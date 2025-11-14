@@ -16,10 +16,78 @@ const buttonaccuile = document.getElementById('buttonaccuile');
 const favorisnav = document.getElementById('favoris');
 const rechargesnav = document.getElementById('rechargesnav');
 const formulairefav = document.getElementById('formulairefav');
+const infotele = document.getElementById('infotele');
+const container_favoris_et_form = document.getElementById('container_favoris_et_form');
+const container_recharge_et_form = document.getElementById('container_recharge_et_form');
+const recharge_nav = document.getElementById('recharge_nav1');
+const favoris_nav = document.getElementById('favoris_nav1');
+const btnclosefr = document.getElementById('btnclosefr');
+const montantRfav = document.getElementById('montantRfav');
+const validefav = document.getElementById('validefav');
+const phoneRfav = document.getElementById('phoneRfav');
+validefav.addEventListener('click',()=>{
+    let ereouef = false;
+    if(phoneRfav.length > 10 ){
+        infonum.innerHTML="'N° de téléphone invalide !";
+        ereouef = true;
+    }
+    let montantConsumerparmois = 0;
+    listTransaction.forEach(element => {
+        montantConsumerparmois += Number(element.montant);
+    });
+    let montantSaisi = Number(montantR.value);
+    if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
+        alert('Vous avez dépassé le plafond mensuel autorisé.');
+        erreur = true;
+    }
+    if (compte.typeactive != "Compte Principal") {
+        alert("Veuillez changer votre compte au compte Principal");
+        ereouef = true;
+    }
+    if (compte.ribComptePrincipal.etat != "active") {
+        alert(" Veuillez activer votre compte.");
+        ereouef=true;
+    }
+    if(ereouef === false){
+let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [];
+let idTransaction = localStorage.getItem("idTransaction") || 1;
+let transaction = {
+    idTransaction: idTransaction,
+    motif: "recharge",
+    montant: montantRfav.value,
+    datetransaction: new Date()
+}
+compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) - Number(montantRfav.value);
+tabhistorique.push(transaction);
+localStorage.setItem("listTransaction", JSON.stringify(tabhistorique))
+localStorage.setItem("idTransaction", ++idTransaction)
+localStorage.setItem("compte", JSON.stringify(compte))
+chargeinfodecompte()
+    }
+})
 
+btnclosefr.addEventListener('click', () => {
+    container_alias.classList.add('d-none');
+    FavorisR.classList.remove('d-none');
+    container_for_recharge.classList.add('d-none');
+    phoneR.value = '';
+    aliasR.value = "";
+
+})
+favoris_nav.addEventListener('click', () => {
+    container_favoris_et_form.classList.add('d-none');
+    container_recharge_et_form.classList.remove('d-none');
+})
+
+
+recharge_nav.addEventListener('click', () => {
+    console.log('RECHARGE1');
+    container_recharge_et_form.classList.add('d-none');
+    container_favoris_et_form.classList.remove('d-none');
+})
 let btnclose = document.getElementById('btnclose');
 btnclose.addEventListener('click', () => {
-    formulairefacture.classList.add('d-none');
+    formulairefav.classList.add('d-none');
     contrat.value = "";
     montantfacture.value = "";
 })
@@ -30,7 +98,9 @@ recharges.forEach(recharge => {
     recharge.addEventListener('click', function () {
         nomR = this.querySelector('h6').textContent;
         imgRecharge = this.querySelector('img').getAttribute('src')
-        container_recharge.classList.add('d-none');
+
+        console.log('ertyui');
+
         container_for_recharge.classList.remove('d-none');
 
     })
@@ -39,7 +109,6 @@ recharges.forEach(recharge => {
 let cmptR = 0;
 let Favoris = 0;
 btn_acheter_autre_racharge.addEventListener('click', () => {
-    container_recharge.classList.remove('d-none');
     imgsucces.classList.add('d-none');
     container_for_recharge.classList.add('d-none');
     container_alias.classList.add('d-none');
@@ -65,23 +134,23 @@ FavorisR.addEventListener('click', () => {
 
 
 valideR.addEventListener('click', () => {
-
+let erreur = false;
     let compte = JSON.parse(localStorage.getItem('compte')) || {};
     let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
     if (compte.typeactive != "Compte Principal") {
         alert("Veuillez changer votre compte au compte Principal");
-        return;
+       erreur = true;
     }
     if (compte.ribComptePrincipal.etat != "active") {
         alert(" Veuillez activer votre compte.");
-        return;
+        erreur = true;
     }
 
     infonum.innerHTML = '';
     infoalias.innerHTML = '';
     imgsucces.classList.add('d-none');
 
-    let erreur = false;
+    
     if (phoneR.value.length !== 10) {
         infonum.innerHTML = 'N° de téléphone invalide !';
         erreur = true;
@@ -94,7 +163,7 @@ valideR.addEventListener('click', () => {
     let montantSaisi = Number(montantR.value);
     if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
         alert('Vous avez dépassé le plafond mensuel autorisé.');
-        return;
+        erreur = true;
     }
 
 
@@ -116,7 +185,6 @@ valideR.addEventListener('click', () => {
 
             let idF = parseInt(localStorage.getItem("idF")) || 0;
             let tabfavoris = JSON.parse(localStorage.getItem("listfavoris")) || [];
-
             let favori = {
                 idF: idF + 1,
                 alias: aliasR.value,
@@ -139,11 +207,7 @@ valideR.addEventListener('click', () => {
             localStorage.setItem("listfavoris", JSON.stringify(tabfavoris));
             localStorage.setItem("idF", idF + 1);
         }
-
-        imgsucces.classList.remove('d-none');
-    }
-
-    let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [];
+ let tabhistorique = JSON.parse(localStorage.getItem("listTransaction")) || [];
     let idTransaction = localStorage.getItem("idTransaction") || 1;
     let transaction = {
         idTransaction: idTransaction,
@@ -157,11 +221,12 @@ valideR.addEventListener('click', () => {
     localStorage.setItem("idTransaction", ++idTransaction)
     localStorage.setItem("compte", JSON.stringify(compte))
     chargeinfodecompte()
+        imgsucces.classList.remove('d-none');
+    }
 
+   
 
 });
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -183,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.closest('button')) return;
         const card = e.target.closest('.favoris-card');
         if (card) {
-         formulairefav.classList.remove('d-none');
+            formulairefav.classList.remove('d-none');
         }
     });
 
@@ -223,3 +288,4 @@ function supprimerFavori(index) {
     localStorage.setItem('listfavoris', JSON.stringify(lesfavoris));
     location.reload();
 }
+ajouter_fav();
