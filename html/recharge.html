@@ -207,12 +207,12 @@
 
                            <div class="d-flex justify-content-center gap-2 align-items-center ">
                               <select class="form-select form-select-compact fs-12" id="montantR">
-                                 <option value="-10">10</option>
-                                 <option value="-20">20</option>
-                                 <option value="-30">30</option>
-                                 <option value="-40">40</option>
-                                 <option value="-80">80</option>
-                                 <option value="-100">100</option>
+                                 <option value="10">10</option>
+                                 <option value="20">20</option>
+                                 <option value="30">30</option>
+                                 <option value="40">40</option>
+                                 <option value="80">80</option>
+                                 <option value="100">100</option>
 
                               </select>
 
@@ -247,19 +247,15 @@
                            <div class="text-orange" id="infoalias"></div>
                         </div>
 
-                        <div
-                           class=" position-absolute top-50 start-50 translate-middle d-flex flex-column gap-4 rounded-4 shadow-lg justify-content-center align-items-center d-none"
-                           id="imgsucces">
-                           <img class="rounded-2" src="../images/téléchargement.png" alt="">
-                           <p class="fs-12">la racharge a ete effectué avec succès</p>
-                           <div class=" d-flex gap-4 justify-content-around">
-                              <button id="btn_acheter_autre_racharge" type="button"
-                                 class="btn fs-12  btn-success">Acheter une
-                                 autre racharge </button>
-                              <button id="buttonaccuile" type="button"
-                                 class="btn button-background-orange fs-12 btn-warning">Accuile </button>
-                           </div>
-                        </div>
+                      <div class="position-fixed top-50 start-50 translate-middle d-flex flex-column gap-3 bg-white p-4 rounded-4 shadow-lg text-center d-none" 
+     id="imgsucces" style="z-index: 1050; width: 300px;">
+   <img class="rounded-2 w-50 mx-auto" src="../images/téléchargement.png" alt="Succès">
+   <p class="fs-12">La recharge a été effectuée avec succès</p>
+   <div class="d-flex gap-2 justify-content-center">
+      <button id="btn_acheter_autre_racharge" type="button" class="btn btn-success fs-12">Autre recharge</button>
+      <button id="buttonaccuile" type="button" class="btn btn-warning fs-12">Accueil</button>
+   </div>
+</div>
                         <div class=" d-flex justify-content-between mt-4 gap-2 justify-content-center">
                            <button id="FavorisR" type="button"
                               class=" button-background-orange p-2 fs-12  rounded-2 buttonvalide">
@@ -322,12 +318,12 @@
 
                   <div class="d-flex justify-content-center gap-2 align-items-center ">
                      <select class="form-select form-select-compact fs-12" id="montantRfav">
-                        <option value="-10">10</option>
-                        <option value="-20">20</option>
-                        <option value="-30">30</option>
-                        <option value="-40">40</option>
-                        <option value="-80">80</option>
-                        <option value="-100">100</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="80">80</option>
+                        <option value="100">100</option>
 
                      </select>
 

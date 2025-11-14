@@ -176,3 +176,12 @@
         display: flex;
         justify-content: space-around;
      }
+     .imgfav img{
+        max-width: 40px ;
+        max-height:400px;
+     }
+     .imgfav {
+        width: 42px;
+        height: 42px;
+        background-color: white;
+     }
