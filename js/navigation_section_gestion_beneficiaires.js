@@ -106,6 +106,8 @@ function changeVisibilite(cardVisible, cardInvisible) {
 
 
 
+ 
+
 chargeinfodecompte()
 function chargeinfodecompte() {
     let idsalut = document.getElementById('idsalut')
@@ -132,7 +134,6 @@ function chargeinfodecompte() {
                 <div class="align-self-end fs-12 fw-bold text-success">${compte.ribComptePrincipal.sold} DH</div>`
     sectionInfoCompte.appendChild(div)
 }
-
 
 
 

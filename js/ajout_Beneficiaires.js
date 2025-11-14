@@ -18,25 +18,7 @@ inputNumeroCompteBYCD.addEventListener("keyup", function () {
         change_border_to_error(inputNumeroCompteBYCD)
 })
 
-// buttonAjoutBeneficaireYCD.addEventListener("click", function () {
-//     if (inputNumeroCompteBYCD.value.length === 16 && inputNomCompteBYCD.value.length > 5) {
-//         if (confirm("vous voullez  ajoute ?")) {
-//             let tabBeneficaires = JSON.parse(localStorage.getItem('tabBeneficaires')) || []
-//             let beneficaire = creeBeneficaire(inputNomCompteBYCD.value, inputNumeroCompteBYCD.value, true)
-//             tabBeneficaires.push(beneficaire);
-//             localStorage.setItem('tabBeneficaires', JSON.stringify(tabBeneficaires))
-//             vider_champ(inputNomCompteBYCD)
-//             vider_champ(inputNumeroCompteBYCD)
-//             reset_border(inputNumeroCompteBYCD)
-//             reset_border(inputNomCompteBYCD)
-//             uotadelisteBenef()
-//         }
-//     }
-//     else
-//         alert('les info de champs invalide ')
-
-// })
-
+ 
 
 buttonAjoutBeneficaireYCD.addEventListener("click", function () {
     let nom = inputNomCompteBYCD.value.trim();
@@ -134,23 +116,4 @@ buttonAjoutBeneficaireRIB.addEventListener("click", function () {
 
 
 
-
-
-// document.getElementById('formVerement1').addEventListener('click', function (e) {
-//     console.log("e.target : ", e.target.id);
-//     let alertConfirm = document.createElement("div");
-//     alertConfirm.setAttribute("class", "row justify-content-between align-items-center ")
-//     alertConfirm.innerHTML = ` <div class="col-12 d-flex flex-column   border-1 " style="width: auto;">
-//                             <div class="d-flex justify-content-between p-1">
-//                                 <span></span> <span role="button">X</span>
-//                             </div>
-//                             <div class="d-flex justify-content-center p-2">
-//                                 <span class="text-dark">message jsdhjskhds dsjbd</span>
-//                             </div>
-//                             <div class="d-flex justify-content-around p-1">
-//                                 <span class="bg-orange text-white p-1" role="button">ok</span> <span role="button"
-//                                     class="bg-danger text-white p-1">nom</span>
-//                             </div>
-//                         </div>`
-//     e.currentTarget.appendChild(alertConfirm);
-// });
+ 

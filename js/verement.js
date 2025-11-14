@@ -46,7 +46,7 @@ verementButton.addEventListener("click", function () {
         let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
         let montantConsumerparmois = 0;
         listTransaction.forEach(element => {
-            montantConsumerparmois += Number(element.montant);
+            montantConsumerparmois += -1* Number(element.montant);
         });
         let montantSaisi = Number(inputMontant.value);
         if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
@@ -142,7 +142,7 @@ function creeTransaction() {
         idTransaction: idTransaction,
         datetransaction: new Date(),
         beneficaire: getBeneficaire(listBeneficiaire.value),
-        montant: inputMontant.value,
+        montant: -inputMontant.value,
         motif: inputMotif.value
     }
     localStorage.setItem("idTransaction", ++idTransaction)
