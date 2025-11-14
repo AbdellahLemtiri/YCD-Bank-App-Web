@@ -28,7 +28,9 @@
 .background-orange {
     background-color: var(--button-background-orange);
 }
-
+body{
+    width: 100%;
+}
 .border-1 {
     border: var(--border-color-grey);
     border-radius: var(--border-radius);

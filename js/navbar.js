@@ -45,7 +45,7 @@ function chargeinfodecompte() {
                         ${RIB.numeroCompte}
                     </div>
                 </div>
-                <div class="align-self-end fs-12 fw-bold text-success">${RIB.sold} DH</div>`
+                `
     sectionInfoCompte.innerHTML = ""
     sectionInfoCompte.appendChild(div)
 }

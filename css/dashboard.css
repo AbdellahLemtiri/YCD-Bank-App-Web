@@ -32,7 +32,9 @@
     padding: 10px;
     margin-bottom: 15px;
 }
-
+body{
+    width: 100%;
+}
 .border-top-right-radius-200 {
     border-top-right-radius: 200px;
 

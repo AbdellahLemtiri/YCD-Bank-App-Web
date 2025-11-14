@@ -20,7 +20,9 @@
     --border-color-success: 1px solid #34C759;
     --border-radius: 16px;
 }
-
+body{
+    width: 100%;
+}
 .background-blue {
     background-color: var(--background-color-blue);
 }

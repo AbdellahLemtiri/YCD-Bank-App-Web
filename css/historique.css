@@ -29,7 +29,9 @@
 .background-blue {
     background-color: var(--background-color-blue);
 }
-
+body{
+    width: 100%;
+}
 .border-1 {
     border: var(--border-color-grey);
     border-radius: var(--border-radius);

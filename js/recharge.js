@@ -260,16 +260,17 @@ function chargerFavoris() {
 
     lesfavoris.forEach((item, index) => {
         const col = document.createElement('div');
-        col.className = 'col-6 col-md-4 col-lg-3 mb-3';
+        col.className = 'col-6 col-md-4 col-lg-3 m-0 ';
         col.innerHTML = `
-            <div class="border-1 favoris-card p-1 bg-white rounded-5 shadow-sm">
-                <div class="p-3 d-flex align-items-center">
+            <div class="border-1 favoris-card p-1 bg-white gap-0   rounded-4 shadow-sm" style=" width: 215px;        
+  height: 130px;  " >
+                <div class=" d-flex align-items-center gap-0" style="padding:10px;">
                     <div class="flex-grow-1">
-                        <div class="d-flex align-items-center gap-2 mb-2">
+                        <div class="d-flex align-items-center gap-1 ">
                            <div class= "imgfav"> <img class="rounded-3"  src="${item.image}" alt="${item.typeRecharge}"></div>
                         </div>
                         <p class="mb-1 fw-semibold">${item.alias}</p>
-                        <p class="m-0 text-muted small">${item.num || ''}</p>
+                        <p class="m-0 text-muted small">${item.num }</p>
                     </div>
                     <button class="btn rounded-4 btn-sm btn-outline-danger ms-2" 
                             onclick="supprimerFavori(${index})" 
