@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> se connecter </title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="../css/recharge.css">
+</head>
+
+<body class="row " style="width: 100%;">
+   <header
+      class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2  pt-2 row   d-flex align-items-start  justify-content-start  flex-lg-column  "
+      style="z-index: 1000;" id="header">
+      <div class=" col-3 col-lg-12 d-flex justify-content-center align-items-center p-lg-4 ">
+         <img src="../images/logo.png" alt="Logo" width="40">
+      </div>
+      <nav class="  col-7 col-lg-12 fs-12 ">
+         <div class="d-none d-lg-block " id="navlist">
+            <div class="nav d-flex flex-column align-items-center align-items-lg-start">
+               <div class="nav-item">
+                  <a href="dashboard.html" class="d-flex  gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-accueil-48.png" alt="Dashboard Icon" width="20">
+                     <span>Dashboard</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="gestion_eneficiaires.html"
+                     class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-données-dans-les-deux-directions-100.png" alt=" versement Icon"
+                        width="20">
+                     <span>verement</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="mes_cartes.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/icons8-carte-bancaire-face-arrière-48.png" alt="cartes Icon" width="20">
+                     <span>Mes cartes</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="convert_pdf.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/rib.png" alt="cartes Icon" width="20">
+                     <span>Mon RIB</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="recharge.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/recharge.png" alt="cartes Icon" width="20">
+                     <span>recharge</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="facture.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/facture.png" alt="cartes Icon" width="20">
+                     <span>Facture</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="simulation.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/simulation.png" alt="cartes Icon" width="20">
+                     <span>simulation</span>
+                  </a>
+               </div>
+               <div class="nav-item">
+                  <a href="devise.html" class="d-flex align-items-center gap-2 p-3 text-decoration-none text-dark">
+                     <img src="../images/changedevise.png" alt="cartes Icon" width="20">
+                     <span>Devise</span>
+                  </a>
+               </div>
+            </div>
+            <div class="d-flex  flex-column  gap-3 border-top pt-3 justify-content-end align-items-center  d-lg-flex">
+
+               <div role="button" id="DeconnexionButton"> <i class="bi bi-box-arrow-right " id=""></i>
+                  <span>Déconnexion</span>
+               </div>
+
+            </div>
+         </div>
+      </nav>
+      <div class="col-2 col-lg-12   d-lg-none  d-flex justify-content-end align-items-start">
+         <button type="button" id="navbar-button" class=" bg-opacity-0 border-0" aria-label="nav bar ">
+            <img src="../images/navbar.png" width="33" alt="nav bar image">
+         </button>
+
+      </div>
+
+   </header>
+
+
+   <main class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 ">
+
+      <div class=" d-flex justify-content-between align-items-center border-orange-bottom p-1 pt-3 ">
+         <div class="fs-16 p-1" id="idsalut"> </div>
+         <div>
+
+         </div>
+      </div>
+
+      <section id="sectionInfoCompte" class="border-orange-bottom"> </section>
+
+
+
+      <!-- la partie de racharge telecome -->
+      <section id="container_recharge_et_form" class="recharge_nv">
+         <div class="row border-orange-bottom ">
+            <div role="button" class="col-6 col-md-6 p-3 bg-orange text-white fs-14 text-center border-white-left">
+               Recharge </div>
+            <div role="button" id="recharge_nav1"
+               class="col-6 col-md-6 p-3 bg-grey text-center fs-14 border-white-left "> favoris
+            </div>
+
+
+         </div>
+
+         <section id="container_recharge" class="container_recharge  ">
+
+            <div class="row gap-2  flex-wrap  justify-content-center  ">
+               <div class="pt-4 pb-4"></div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between p-2  ">
+                  <h6 class="d-none">Recharge IAM </h6>
+                  <img id="iam" src="../images/100.png" alt="IAM">
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between ">
+                  <h6 class="d-none">Recharge INWI </h6>
+                  <img id="inwi" src="../images/2.png" alt="INWI">
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between">
+                  <img id="orange" src="../images/3.png" alt="ORANGE">
+                  <h6 class="d-none">Recharge ORANGE </h6>
+                  <div class="card-text">
+
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between">
+                  <img id="miditel" src="../images/5.png" alt="MEDITEL">
+                  <h6 class="d-none">Recharge MEDITEL </h6>
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between">
+                  <img id="afriqia" src="../images/6.png" alt="AFRIQIA">
+                  <h6 class="d-none">Recharge Carte AFRIQIA </h6>
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box  align-items-center justify-content-space-between">
+                  <img id="stm" src="../images/7.png" alt="STM">
+                  <h6 class="d-none">Recharge Carte STM </h6>
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box">
+                  <img id="yoxo" src="../images/8.jpg" alt="telecom">
+                  <h6 class="d-none">Recharge YOXO </h6>
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+               <div class="recharge  border-1 card-box align-items-center justify-content-space-between">
+                  <img id="bayn" src="../images/téléchargement (1) 1.png" alt="telecom">
+                  <h6 class="d-none">Recharge Bayn </h6>
+
+                  <div class="card-text">
+                     <p class="mb-0 fs-12">À partir de 10dhs</p>
+                  </div>
+               </div>
+            
+            </div>
+         </section>
+
+         <!-- Formulaire -->
+
+         <section id="container_for_recharge"
+            class=" p-2 shadowcol-10 col-md-6 col-lg-6   position-fixed top-50 d-block start-50 translate-middle bg-light border border-success rounded-4 d-none  shadow   ">
+            <div class="container p-2 rounded-4  ">
+               <div class="d-flex p-1 justify-content-end">
+                  <button id="btnclosefr" type="button" class="btn-close " data-bs-dismiss="toast"
+                     aria-label="Close"></button>
+               </div>
+
+               <div class="row justify-content-center">
+
+                  <div class="">
+                     <form>
+
+                        <!-- Numéro de téléphone -->
+                        <div class="mb-2 text-center fs-12">
+                           <label for="phone" class=" fs-12 d-block">N° de téléphone</label>
+                           <input type="text" class="form-control  fs-12 " id="phoneR" placeholder="N° de téléphone">
+                           <div id="infonum" class="text-orange"></div>
+                        </div>
+                        <!-- Montant -->
+                        <div class="mb-2 text-center ">
+                           <label class=" fs-12 ">Montant</label>
+
+                           <div class="d-flex justify-content-center gap-2 align-items-center ">
+                              <select class="form-select form-select-compact fs-12" id="montantR">
+                                 <option value="10">10</option>
+                                 <option value="20">20</option>
+                                 <option value="30">30</option>
+                                 <option value="40">40</option>
+                                 <option value="80">80</option>
+                                 <option value="100">100</option>
+
+                              </select>
+
+                           </div>
+
+                           <div id="infomontant" class="text-danger"></div>
+
+                        </div>
+                        <div class=" d-flex justify-content-center ">
+                           <label for="" class=" fs-12 d-block"> Choisir type de recharge...</label>
+
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-2 align-items-center">
+
+                           <select class="form-select fs-12 form-select-compact" id="typeR">
+
+                              <option value="">*1</option>
+                              <option value="">*2</option>
+                              <option value="">*3</option>
+                              <option value="">*5</option>
+                              <option value="">*6</option>
+                              <option value="">*9</option>
+                           </select>
+                           <div id="infotype"></div>
+
+                        </div>
+                        <div id="container_alias" class="text-center mt-2 d-none">
+                           <label class="fs-12 d-block">Entre le alias </label>
+                           <input type="text" class="form-control form-control-compact fs-12 " id="aliasR"
+                              placeholder="Pas plus de 20 caracteres">
+                           <div class="text-orange" id="infoalias"></div>
+                        </div>
+
+                        <div
+                           class="position-fixed top-50 start-50 translate-middle d-flex flex-column gap-3 bg-white p-4 rounded-4 shadow-lg text-center d-none"
+                           id="imgsucces" style="z-index: 1050; width: 300px;">
+                           <img class="rounded-2 w-50 mx-auto" src="../images/téléchargement.png" alt="Succès">
+                           <p class="fs-12">La recharge a été effectuée avec succès</p>
+                           <div class="d-flex gap-2 justify-content-center">
+                              <button id="btn_acheter_autre_racharge" type="button" class="btn btn-success fs-12">Autre
+                                 recharge</button>
+                              <button id="buttonaccuile" type="button" class="btn btn-warning fs-12">Accueil</button>
+                           </div>
+                        </div>
+                        <div class=" d-flex justify-content-between mt-4 gap-2 justify-content-center">
+                           <button id="FavorisR" type="button"
+                              class=" button-background-orange p-2 fs-12  rounded-2 buttonvalide">
+                              Ajouter au Favoris
+                           </button>
+                           <button id="valideR" type="button"
+                              class=" button-background-orange p-2 fs-12 rounded-2 buttonvalide1 buttonvalide  ">
+                              VALIDER
+                           </button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+
+
+         </section>
+      </section>
+
+      <section id="container_favoris_et_form" class="favori_nv d-none">
+         <div class="row border-orange-bottom mb-4 " id="">
+            <div role="button" id="favoris_nav1"
+               class="col-6 col-md-6 p-3 bg-grey   fs-14 text-center border-white-left">Recharge</div>
+            <div role="button" class="col-6 col-md-6 p-3 bg-orange text-center text-white fs-14 border-white-left ">
+               Favoris
+            </div>
+         </div>
+         <div class="">
+            <div id="favoris_cards" class=" row row-cols-1 mt-4 row-cols-md-3  d-flex justify-content-center">
+            </div>
+
+         </div>
+
+         <div id="formulairefav"
+            class="  p-4 shadow  position-fixed top-50 d-block start-50 translate-middle bg-light border border-success rounded-4  shadow  d-none  "
+            style="width: 300px;">
+
+            <form class="fs-12">
+               <button id="btnclose" type="button" class="btn-close justify-content-end" data-bs-dismiss="toast"
+                  aria-label="Close"></button>
+
+               <div class=" d-flex justify-content-center ">
+                  <label for="" class=" fs-12 mb-2 d-block"> Choisir type de recharge...</label>
+
+               </div>
+               <div class="d-flex justify-content-center gap-2 align-items-center">
+
+                  <select class="form-select fs-12 form-select-compact" id="typeR">
+
+                     <option value="">*1</option>
+                     <option value="">*2</option>
+                     <option value="">*3</option>
+                     <option value="">*5</option>
+                     <option value="">*6</option>
+                     <option value="">*9</option>
+                  </select>
+                  <div id="infotype"></div>
+
+               </div>
+               <div class="mb-2 text-center ">
+                  <label class=" fs-12 mb-2 mt-2 ">Montant</label>
+
+                  <div class="d-flex justify-content-center gap-2 align-items-center ">
+                     <select class="form-select form-select-compact fs-12" id="montantRfav">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="80">80</option>
+                        <option value="100">100</option>
+
+                     </select>
+
+                  </div>
+
+                  <div id="infomontant" class="text-danger"></div>
+
+               </div>
+               <div class="d-flex mb-4 justify-content-center flex-column  align-items-center">
+
+               </div>
+               <button id="validefav" class="btn fs-12 btn- button-background-orange w-100">Valider</button>
+            </form>
+
+         </div>
+      </section>
+
+   </main>
+
+   <script src="../js/recharge.js"></script>
+   <script src="../js/navbar.js"></script>
+</body>
+
+</html>
