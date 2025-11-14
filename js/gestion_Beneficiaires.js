@@ -1,3 +1,7 @@
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
+
+
 let interfacelistbeneficaire = document.getElementById('interfacelistbeneficaire')
 
 

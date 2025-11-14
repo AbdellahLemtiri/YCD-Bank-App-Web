@@ -1,3 +1,5 @@
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
 
 let historique_cards= document.getElementById('historique_cards');
 let historique =JSON.parse( localStorage.getItem("listTransaction"))

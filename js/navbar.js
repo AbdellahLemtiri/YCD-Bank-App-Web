@@ -1,3 +1,6 @@
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
+
 document.getElementById('navbar-button').addEventListener('click', function () {
     document.getElementById('navlist').classList.toggle('d-none')
 })

@@ -1,3 +1,6 @@
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
+
 let buttonAjoutBeneficaireYCD = document.getElementById('buttonAjoutBeneficaireYCD')
 let inputNumeroCompteBYCD = document.getElementById('inputNumeroCompteBYCD')
 let inputNomCompteBYCD = document.getElementById('inputNomCompteBYCD')

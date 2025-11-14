@@ -98,7 +98,8 @@ function validerRecharge() {
 
     if (compte.typeactive !== "Compte Principal") {
         alert("Veuillez changer votre compte au compte Principal");
-        erreur = true;
+       return
+
     }
 
     if (compte.ribComptePrincipal && compte.ribComptePrincipal.etat !== "active") {
@@ -119,7 +120,7 @@ function validerRecharge() {
 
     let montantConsumerparmois = 0;
     listTransaction.forEach(element => {
-        montantConsumerparmois += Number(element.montant || 0);
+        montantConsumerparmois += -Number(element.montant );
     });
 
     if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {
@@ -158,6 +159,7 @@ function validerRechargeFavoris() {
         erreur = true;
     }
 
+    
     if (compte.ribComptePrincipal && compte.ribComptePrincipal.etat !== "active") {
         alert("Veuillez activer votre compte.");
         erreur = true;
@@ -172,7 +174,7 @@ function validerRechargeFavoris() {
 
     let montantConsumerparmois = 0;
     listTransaction.forEach(element => {
-        montantConsumerparmois += Number(element.montant || 0);
+        montantConsumerparmois += - Number(element.montant || 0);
     });
 
     if (compte.plafondOperation && (montantConsumerparmois + montantSaisi > Number(compte.plafondOperation))) {

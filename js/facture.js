@@ -1,3 +1,6 @@
+if (localStorage.getItem("login") != "seccuss")
+    window.location.href = "login.html";
+
 const factures = document.querySelectorAll('.facture')
 const formulairefacture = document.getElementById('formulairefacture');
 const montantfacture = document.getElementById("montantfacture");
@@ -22,7 +25,7 @@ factures.forEach(facture => {
 validef.addEventListener('click', (e) => {
   e.preventDefault();
   let erreur = false;
-  
+
   let compte = JSON.parse(localStorage.getItem('compte'))
   let listTransaction = JSON.parse(localStorage.getItem('listTransaction')) || [];
   const numContrat = contrat.value.trim();
@@ -47,7 +50,7 @@ validef.addEventListener('click', (e) => {
   }
 
   if (numContrat === "" || numContrat.length < 6) {
-    infocontra.textContent = "Numéro de contrat invalide !!"
+    infocontra.textContent = "Numéro de contrat invalide !! (6)"
     infocontra.classList.add('text-orange');
     erreur = true;
   }
@@ -57,12 +60,25 @@ validef.addEventListener('click', (e) => {
     infomontantfacture.classList.add('text-orange');
     erreur = true;
   }
+  let montantConsumerparmois = 0;
+  listTransaction.forEach(element => {
+    montantConsumerparmois += -1 * Number(element.montant);
+  });
+
+  if (compte.plafondOperation && (montantConsumerparmois + montant > Number(compte.plafondOperation))) {
+    alert('Vous avez dépassé le plafond mensuel autorisé.');
+    return;
+  }
 
   if (!erreur) {
+    if (!confirm(`Voulez-vous ajouter cette Paiement de ${montant} DH  !` )) {
+      return;
+    }
+
     compte.ribComptePrincipal.sold = Number(compte.ribComptePrincipal.sold) - Number(montant);
-    
+
     let idTransaction = parseInt(localStorage.getItem("idTransaction")) || 1;
-    
+
     let transaction = {
       idTransaction: idTransaction,
       motif: "Facture Eau électricité - " + numContrat,
@@ -71,7 +87,7 @@ validef.addEventListener('click', (e) => {
     };
 
     listTransaction.push(transaction);
-    
+
     localStorage.setItem("listTransaction", JSON.stringify(listTransaction));
     localStorage.setItem("idTransaction", idTransaction + 1);
     localStorage.setItem("compte", JSON.stringify(compte));
