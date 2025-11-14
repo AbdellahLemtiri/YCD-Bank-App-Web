@@ -30,34 +30,34 @@ let nomR = "";
 let imgRecharge = "";
 let Favoris = 0;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     chargerFavoris();
     initialiserEvenements();
 });
 
 function initialiserEvenements() {
     recharges.forEach(recharge => {
-        recharge.addEventListener('click', function() {
+        recharge.addEventListener('click', function () {
             nomR = this.querySelector('h6').textContent;
             imgRecharge = this.querySelector('img').getAttribute('src');
             container_for_recharge.classList.remove('d-none');
         });
     });
 
-    favoris_nav.addEventListener('click', function() {
+    favoris_nav.addEventListener('click', function () {
         container_favoris_et_form.classList.add('d-none');
         container_recharge_et_form.classList.remove('d-none');
     });
 
-    recharge_nav.addEventListener('click', function() {
+    recharge_nav.addEventListener('click', function () {
         container_recharge_et_form.classList.add('d-none');
         container_favoris_et_form.classList.remove('d-none');
     });
 
     btn_acheter_autre_racharge.addEventListener('click', reinitialiserFormulaire);
     btnclosefr.addEventListener('click', reinitialiserFormulaire);
-    
-    FavorisR.addEventListener('click', function() {
+
+    FavorisR.addEventListener('click', function () {
         container_alias.classList.remove('d-none');
         FavorisR.classList.add('d-none');
         Favoris = 1;
@@ -65,12 +65,12 @@ function initialiserEvenements() {
 
     valideR.addEventListener('click', validerRecharge);
     validefav.addEventListener('click', validerRechargeFavoris);
-    
-    btnclose.addEventListener('click', function() {
+
+    btnclose.addEventListener('click', function () {
         formulairefav.classList.add('d-none');
     });
 
-    buttonaccuile.addEventListener('click', function() {
+    buttonaccuile.addEventListener('click', function () {
         window.location.href = "dashboard.html";
     });
 }
@@ -144,7 +144,7 @@ function validerRecharge() {
     }
 
     traiterTransaction(montantSaisi, nomR);
-    
+
     imgsucces.classList.remove('d-none');
 }
 
@@ -163,7 +163,7 @@ function validerRechargeFavoris() {
         erreur = true;
     }
 
-   
+
     const montantSaisi = Number(montantRfav.value);
     if (!montantSaisi || montantSaisi <= 0) {
         alert('Montant invalide !');
@@ -189,7 +189,7 @@ function validerRechargeFavoris() {
 function ajouterFavori() {
     const idF = parseInt(localStorage.getItem("idF")) || 0;
     const tabfavoris = JSON.parse(localStorage.getItem("listfavoris")) || [];
-    
+
     const favori = {
         idF: idF + 1,
         alias: aliasR.value,
@@ -198,7 +198,7 @@ function ajouterFavori() {
         image: imgRecharge
     };
 
-    const doublon = tabfavoris.find(fav => 
+    const doublon = tabfavoris.find(fav =>
         fav.num === favori.num || fav.alias.toLowerCase() === favori.alias.toLowerCase()
     );
 
@@ -220,7 +220,7 @@ function traiterTransaction(montant, motif) {
     const transaction = {
         idTransaction: idTransaction,
         motif: motif,
-        montant: montant,
+        montant: -montant,
         datetransaction: new Date()
     };
 
@@ -232,7 +232,7 @@ function traiterTransaction(montant, motif) {
     localStorage.setItem("listTransaction", JSON.stringify(tabhistorique));
     localStorage.setItem("idTransaction", idTransaction + 1);
     localStorage.setItem("compte", JSON.stringify(compte));
-    
+
     if (typeof chargeinfodecompte === 'function') {
         chargeinfodecompte();
     }
@@ -241,9 +241,9 @@ function traiterTransaction(montant, motif) {
 function chargerFavoris() {
     const lesfavoris = JSON.parse(localStorage.getItem('listfavoris')) || [];
     const favoris_cards = document.getElementById('favoris_cards');
-    
+
     if (!favoris_cards) return;
-    
+
     favoris_cards.innerHTML = '';
 
     if (lesfavoris.length === 0) {
@@ -280,8 +280,8 @@ function chargerFavoris() {
         favoris_cards.appendChild(col);
     });
 
-   
-    favoris_cards.addEventListener('click', function(e) {
+
+    favoris_cards.addEventListener('click', function (e) {
         if (e.target.closest('button')) return;
         const card = e.target.closest('.favoris-card');
         if (card) {
