@@ -10,12 +10,17 @@ document.getElementById('DeconnexionButton').addEventListener('click', function 
         listComptes[index] = compte;
         localStorage.setItem('listComptes', JSON.stringify(listComptes));
         localStorage.removeItem('compte');
+        localStorage.removeItem('listTransaction');
+        localStorage.removeItem('listfavoris');
+        localStorage.removeItem('tabBeneficaires');
         localStorage.removeItem("login");
         alert(" Déconnexion réussie !");
         window.location.href = "login.html"; //  page de connexion
     }
 });
-chargeinfodecompte()
+ 
+    chargeinfodecompte()
+ 
 function chargeinfodecompte() {
     let compte = JSON.parse(localStorage.getItem('compte'))
     let nomcomplet = (compte.genre == "Homme" ? "Mr. " : "M. ") + compte.nom + " " + compte.prenom
