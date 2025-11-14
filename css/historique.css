@@ -112,3 +112,54 @@
 .card_his{
     height: 100px;
 }
+
+
+    .btn-orange {
+     background-color: var(--button-background-orange);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 4px 4px;
+      font-family: var(--font-family);
+      color: var(--text-color-light);
+    }
+    
+    .btn-orange-outline {
+       font-family: var(--font-family);
+      color: var(--text-color-light);
+      background-color: var(--button-background-orange);
+      border-radius: 12px;
+      padding: 3px 3px;
+     
+    }
+ 
+
+    .form-label {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.4rem;
+    }
+     .buttonvalide{
+        border: none;
+     }
+     .buttonvalide:active{
+        transform: scale(0.97);
+     }
+     .buttonvalide1{
+        min-width: 150px;
+     }
+     #imgsucces{
+        background-color: #ffffff;
+        width: 92%;
+        height: 92%;
+        padding: 10px;
+     }
+     #imgsucces img{
+        width: 30%;
+        height: 40%;
+     }
+
+     .btnR{
+        display: flex;
+        justify-content: space-around;
+     }
