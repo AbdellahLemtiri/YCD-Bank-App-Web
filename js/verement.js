@@ -142,7 +142,7 @@ function creeTransaction() {
         idTransaction: idTransaction,
         datetransaction: new Date(),
         beneficaire: getBeneficaire(listBeneficiaire.value),
-        montant: inputMontant.value,
+        montant: -Number(inputMontant.value),
         motif: inputMotif.value
     }
     localStorage.setItem("idTransaction", ++idTransaction)
