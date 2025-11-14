@@ -1,0 +1,174 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800;900&display=swap);
+
+
+:root {
+    --primary-color: #131313;
+    --secondary-color: #FFC247;
+    --text-color: #333333;
+    --text-color-light: white;
+    --text-color-success: #34C759;
+    --background-color-light: #EDEDF1;
+    --background-color-dark: #F6F6F3;
+    --background-color-white: #ffffff;
+    --background-color-blue: #4335DE;
+    --button-background-orange: #FF8D28;
+    --button-background-orange-disabled: #ff8c2882;
+    --border-color-orange: 1px solid #FFC247;
+    --border-color-grey: 1px solid #CCCCCC;
+    --font-family: 'Inter', sans-serif;
+    --border-color-error: 1px solid red;
+    --border-color-success: 1px solid #34C759;
+    --border-radius: 16px;
+}
+
+.background-blue {
+    background-color: var(--background-color-blue);
+}
+
+.border-1 {
+    border: var(--border-color-grey);
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.border-top-right-radius-200 {
+    border-top-right-radius: 200px;
+
+    @media screen {
+        @media (max-width: 768px) {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 200px;
+        }
+    }
+}
+
+
+.background-light {
+    background-color: var(--background-color-light);
+}
+
+.button-background-orange {
+    background-color: var(--button-background-orange);
+    color: var(--text-color-light);
+}
+
+
+.message-error-border {
+ border: var(--border-color-error);
+}
+
+.message-success-border {
+ border: var(--border-color-success);
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+.fs-14 {
+    font-size: 14px;
+}
+.fs-12 {    
+    font-size: 12px;
+}
+.text-orange{
+    color: var(--secondary-color);
+}
+.border-orange-bottom{
+   
+    border-bottom: 1px solid var( --button-background-orange);
+}
+.border-white-left{
+    border-left: 1px solid var( --background-color-white);
+}
+
+.bg-orange{
+    background-color: var(--button-background-orange);
+}
+
+.bg-grey{
+    background-color: var(--background-color-dark);
+}
+
+.container_recharge .card-box {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 215px;        
+  height: 110px;        
+ cursor: pointer;
+}
+
+.container_recharge .card-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.container_recharge .card-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.container_recharge .card-text {
+  text-align: right;
+}
+
+.text-orange {
+  color: #f7931e;
+}
+
+
+    .btn-orange {
+     background-color: var(--button-background-orange);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 4px 4px;
+      font-family: var(--font-family);
+      color: var(--text-color-light);
+    }
+    
+    .btn-orange-outline {
+       font-family: var(--font-family);
+      color: var(--text-color-light);
+      background-color: var(--button-background-orange);
+      border-radius: 12px;
+      padding: 3px 3px;
+     
+    }
+ 
+
+    .form-label {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.4rem;
+    }
+     .buttonvalide{
+        border: none;
+     }
+     .buttonvalide:active{
+        transform: scale(0.97);
+     }
+     .buttonvalide1{
+        min-width: 150px;
+     }
+     #imgsucces{
+        background-color: #ffffff;
+        width: 92%;
+        height: 92%;
+        padding: 10px;
+     }
+     #imgsucces img{
+        width: 30%;
+        height: 40%;
+     }
+
+     .btnR{
+        display: flex;
+        justify-content: space-around;
+     }
